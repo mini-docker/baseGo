@@ -18,7 +18,7 @@ import (
 // body传入
 // {
 //   "name": "test",
-//   "telephone": "12345678900",
+//   "account": "12345678900",
 //   "password": "123456"
 // }
 
@@ -29,11 +29,16 @@ func Register(ctx *gin.Context) {
 	ctx.Bind(&requestUser)
 	// 获取参数
 	name := requestUser.Name
-	telephone := requestUser.Telephone
+	account := requestUser.Account
 	password := requestUser.Password
+	fmt.Println(password, "password", account)
 	// 数据验证
-	if len(telephone) != 11 {
-		response.Response(ctx, http.StatusUnprocessableEntity, 422, nil, "手机号必须为11位")
+	// if len(account) != 11 {
+	// 	response.Response(ctx, http.StatusUnprocessableEntity, 422, nil, "账号必须为11位")
+	// 	return
+	// }
+	if len(account) < 1 || len(account) > 13 {
+		response.Response(ctx, http.StatusUnprocessableEntity, 422, nil, "账号必须在2-12位")
 		return
 	}
 	if len(password) < 6 {
@@ -44,7 +49,7 @@ func Register(ctx *gin.Context) {
 	if len(name) == 0 {
 		name = util.RandomString(10)
 	}
-	if isTelephoneExist(DB, telephone) {
+	if isAccountExist(DB, account) {
 		response.Response(ctx, http.StatusUnprocessableEntity, 422, nil, "用户已存在")
 		return
 	}
@@ -54,11 +59,13 @@ func Register(ctx *gin.Context) {
 		return
 	}
 	newUser := model.User{
-		Name:      name,
-		Telephone: telephone,
-		Password:  string(hasePassword),
+		Name:     name,
+		Account:  account,
+		Password: string(hasePassword),
 	}
+	// todo
 	DB.Create(&newUser)
+
 	// 发送token
 	token, err := common.ReleaseToken(newUser)
 	if err != nil {
@@ -71,25 +78,32 @@ func Register(ctx *gin.Context) {
 
 }
 
-// form 表单查询
 func Login(c *gin.Context) {
 	db := common.GetDB()
-	// 获取参数
-	telephone := c.PostForm("telephone")
-	password := c.PostForm("password")
-	fmt.Println(len(telephone), "lenphone", telephone, c)
+	// post body 提交
+	var requestUser = model.User{}
+	c.Bind(&requestUser)
+	// name := requestUser.Name
+	account := requestUser.Account
+	password := requestUser.Password
+
+	// 获取参数 // form 表单查询
+	// account := c.PostForm("account")
+	// password := c.PostForm("password")
+
+	// fmt.Println(len(account), "lenphone", account, c)
 	// 数据验证
-	if len(telephone) != 11 {
-		response.Response(c, http.StatusUnprocessableEntity, 422, nil, "手机号必须11位")
+	if len(account) < 1 || len(account) > 13 {
+		response.Response(c, http.StatusUnprocessableEntity, 422, nil, "账号必须在2-12位")
 		return
 	}
 	if len(password) < 6 {
 		response.Response(c, http.StatusUnprocessableEntity, 422, nil, "密码不能少于6位")
 		return
 	}
-	// 判断手机号是否存在
+	// 判断账号是否存在
 	var user model.User
-	db.Where("telephone=?", telephone).First(&user)
+	db.Where("account=?", account).First(&user)
 	if user.ID == 0 {
 		response.Response(c, http.StatusUnprocessableEntity, 422, nil, "密码不能少于6位")
 		return
@@ -106,7 +120,9 @@ func Login(c *gin.Context) {
 	}
 
 	// 返回结果
-	response.Success(c, gin.H{"token": token}, "登陆成功")
+	// response.Success(c, gin.H{"code": 200, "data": gin.H{"token": token}, "success": true}, "登陆成功")
+	// response.Success(c, gin.H{"token": token}, "登陆成功")
+	c.JSON(http.StatusOK, gin.H{"code": 200, "data": gin.H{"token": token}, "success": true, "msg": "登陆成功"})
 
 }
 
@@ -115,9 +131,9 @@ func Info(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{"code": 200, "data": gin.H{"user": dto.ToUserDto(user.(model.User))}})
 }
 
-func isTelephoneExist(db *gorm.DB, telephone string) bool {
+func isAccountExist(db *gorm.DB, account string) bool {
 	var user model.User
-	db.Where("telephone=?", telephone).First(&user)
+	db.Where("account=?", account).First(&user)
 	if user.ID != 0 {
 		return true
 	}
