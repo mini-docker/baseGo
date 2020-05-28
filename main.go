@@ -23,7 +23,7 @@ func main() {
 	// 	panic(r.Run(":", port))
 	// }
 	// panic(r.Run())
-	// r.Run()
+	r.Run()
 	fmt.Println(port)
 }
 

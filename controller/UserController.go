@@ -6,6 +6,7 @@ import (
 	"baseGo/model"
 	"baseGo/response"
 	"baseGo/util"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -13,6 +14,13 @@ import (
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
 )
+
+// body传入
+// {
+//   "name": "test",
+//   "telephone": "12345678900",
+//   "password": "123456"
+// }
 
 func Register(ctx *gin.Context) {
 	DB := common.GetDB()
@@ -63,11 +71,13 @@ func Register(ctx *gin.Context) {
 
 }
 
+// form 表单查询
 func Login(c *gin.Context) {
 	db := common.GetDB()
 	// 获取参数
 	telephone := c.PostForm("telephone")
 	password := c.PostForm("password")
+	fmt.Println(len(telephone), "lenphone", telephone, c)
 	// 数据验证
 	if len(telephone) != 11 {
 		response.Response(c, http.StatusUnprocessableEntity, 422, nil, "手机号必须11位")

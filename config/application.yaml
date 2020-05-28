@@ -3,7 +3,7 @@ server:
 datasource:
   driverName: mysql
   host: 127.0.0.1
-  port: 33062
+  port: 33061
   database: ginessential
   username: root
   password: root

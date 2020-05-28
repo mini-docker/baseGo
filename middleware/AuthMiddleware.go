@@ -10,6 +10,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// form 表单查询
+// Authorization Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjEsImV4cCI6MTU5MTI2NDg2MiwiaWF0IjoxNTkwNjYwMDYyLCJpc3MiOiJ5eWNjUVF1Iiwic3ViIjoidXNlciB0b2tlbiJ9.ODY0T49hJTNYSN-Bm3biEmsYREmXSzEOcnHXQCNDEAM
 func AuthMiddleware() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		//获取authorization header
