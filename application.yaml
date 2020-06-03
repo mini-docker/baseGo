@@ -1,0 +1,42 @@
+app :
+  addr : 0.0.0.0
+  apiPort : 8868
+  appEnvironment : local
+  bcacheExpire : 10
+  uniqueId : 888
+
+log :
+  level : info
+  maxLogSize : 10240000
+  path : /data/front-js135-test-log.log
+  recordPath : /data/front-js135-test-record.log
+
+mysql :
+  mysqlDbName : red_packet
+  mysqlHost : 127.0.0.1:33061
+  mysqlPassword : root
+  mysqlTimeout : 10s
+  mysqlUsername : root
+  showSql : 1
+  tablePrefix : red_
+
+redis :
+  addrs : 127.0.0.1:6379
+#  addrs : 127.0.0.1:6379
+  db : 15
+  masterName : mymaster
+  mode : 0
+  password :
+
+registry :
+  addr : 127.0.0.1:2379
+  interval : 5
+  ttl : 5
+
+session :
+  sessionExpiredTime : 30
+  sessionGoroutineNum : 10
+  sessionRuntime : 10
+
+cdn :
+  host : http://91.75.213.200:8867
