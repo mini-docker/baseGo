@@ -12,17 +12,18 @@ var (
 	// SystemMenuController          = new(controller.SystemMenuController)
 	// SystemRoleController          = new(controller.SystemRoleController)
 	SystemAdminController = new(controller.SystemAdminController)
-	// SystemLineMealController      = new(controller.SystemLineMealController)
-	// SystemLineController          = new(controller.SystemLineController)
-	SystemAgencyController = new(controller.SystemAgencyController)
-	// SystemGameController          = new(controller.SystemGameController)
-	// SystemRoomController          = new(controller.SystemRoomController)
-	// SystemUserController          = new(controller.SystemUserController)
-	// RedOrderRecordController      = new(controller.RedOrderRecordController)
-	// SystemLineRoyaltyController   = new(controller.SystemLineRoyaltyController)
-	// SystemPostController          = new(controller.SystemPostController)
-	// SystemActivePictureController = new(controller.SystemActivePictureController)
-	// OrderStatistical              = new(controller.OrderStatistical)
+
+// SystemLineMealController      = new(controller.SystemLineMealController)
+// SystemLineController          = new(controller.SystemLineController)
+// -SystemAgencyController = new(controller.SystemAgencyController)
+// SystemGameController          = new(controller.SystemGameController)
+// SystemRoomController          = new(controller.SystemRoomController)
+// SystemUserController          = new(controller.SystemUserController)
+// RedOrderRecordController      = new(controller.RedOrderRecordController)
+// SystemLineRoyaltyController   = new(controller.SystemLineRoyaltyController)
+// SystemPostController          = new(controller.SystemPostController)
+// SystemActivePictureController = new(controller.SystemActivePictureController)
+// OrderStatistical              = new(controller.OrderStatistical)
 )
 
 func RegisteRouter(echo *server.Echo) {
@@ -87,10 +88,10 @@ func RegisteRouter(echo *server.Echo) {
 		// AuthApiApp.POST("/system/editLineStatus", SystemLineController.EidtLineStatus) // 修改线路状态
 
 		// 业主超管管理ok
-		AuthApiApp.POST("/system/queryAgencyAdminList", SystemAgencyController.QueryAgencyAdminList) // 查询超管列表ok
-		AuthApiApp.POST("/system/addAgencyAdmin", SystemAgencyController.AddAgencyAdmin)             // 添加超管
-		AuthApiApp.POST("/system/queryAgencyAdminOne", SystemAgencyController.QueryAgencyAdminOne)   // 查询单个超管
-		AuthApiApp.POST("/system/editAgencyAdmin", SystemAgencyController.EditAgencyAdmin)           // 修改超管
+		// AuthApiApp.POST("/system/queryAgencyAdminList", SystemAgencyController.QueryAgencyAdminList) // 查询超管列表ok
+		// AuthApiApp.POST("/system/addAgencyAdmin", SystemAgencyController.AddAgencyAdmin)             // 添加超管
+		// AuthApiApp.POST("/system/queryAgencyAdminOne", SystemAgencyController.QueryAgencyAdminOne)   // 查询单个超管
+		// AuthApiApp.POST("/system/editAgencyAdmin", SystemAgencyController.EditAgencyAdmin)           // 修改超管
 
 		// 业主代理管理ok
 		// AuthApiApp.POST("/system/QueryAgencyList", SystemAgencyController.QueryAgencyList)   // 查询代理列表ok
