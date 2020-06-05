@@ -1,8 +1,8 @@
 package valid
 
 import (
+	"baseGo/fecho/valid/rule"
 	"errors"
-	"fecho/valid/rule"
 	"fmt"
 	"html"
 	"log"
