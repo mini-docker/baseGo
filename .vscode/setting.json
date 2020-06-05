@@ -1,0 +1,41 @@
+{
+    "sync.gist": "b2cc3edfd247948e30e73b6376de7852",
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "prettier.useTabs": true,
+    "explorer.confirmDelete": false,
+    "prettier.tabWidth": 4,
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.options.useTabs": true,
+    "tslint.autoFixOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "vsicons.dontShowNewVersionMessage": true,
+    "git.confirmSync": false,
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript"
+    },
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "minapp-vscode.disableAutoConfig": true,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "sync.autoUpload": true,
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "search.followSymlinks": false,
+    "[yaml]": {},
+    "go.gopath": "/Users/js103/gopath1/src/baseGo"
+}
