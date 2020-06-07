@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/FZambia/sentinel"
-	"github.com/garyburd/redigo/redis"
+	"github.com/gomodule/redigo/redis"
 )
 
 var (
@@ -82,7 +82,7 @@ func NewRedis(addr, password string, dbNum int) (*redis.Pool, error) {
 }
 
 // 获取新的redis客户端连接（哨兵）
-func NewRedisBySentinel(masterName, addr, password string, dbNum int) (*redis.Pool, error) {
+func NewRedisBySentinel(masterName string, addrs string, password string, dbNum int) (*redis.Pool, error) {
 	// options := &redis.FailoverOptions{
 	// 	MasterName:    masterName,
 	// 	SentinelAddrs: strings.Split(addr, ","),
@@ -96,13 +96,13 @@ func NewRedisBySentinel(masterName, addr, password string, dbNum int) (*redis.Po
 	// }
 	// return cliNewBySentinel, nil
 
-	// redisAddr := "192.168.1.11:26378,192.168.1.22:26378"
-	// redisAddrs := strings.Split(redisAddr, ",")
+	//redisAddr := "192.168.1.11:26378,192.168.1.22:26378"
+	//redisAddrs := strings.Split(redisAddr, ",")
 	// masterName := "master1" // 根据redis集群具体配置设置
 	fmt.Println(dbNum, "dbNum")
 	var errs error
 	sntnl := &sentinel.Sentinel{
-		Addrs:      strings.Split(addr, ","),
+		Addrs:      strings.Split(addrs, ","),
 		MasterName: masterName,
 		Dial: func(addr string) (redis.Conn, error) {
 			timeout := 500 * time.Millisecond
