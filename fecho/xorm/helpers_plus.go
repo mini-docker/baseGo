@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"time"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 func reflect2objectWithDateFormat(rawValue *reflect.Value, dateFormat string) (value interface{}, err error) {

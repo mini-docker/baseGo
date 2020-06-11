@@ -13,8 +13,8 @@ import (
 	"regexp"
 	"strings"
 
-	"fecho/xorm/core"
 	"github.com/Chronokeeper/anyxml"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 type Record map[string]Value

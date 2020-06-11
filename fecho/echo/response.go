@@ -3,9 +3,10 @@ package echo
 import (
 	"bufio"
 	"errors"
-	"fecho/golog"
 	"net"
 	"net/http"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
 )
 
 type (

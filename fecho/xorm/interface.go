@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"time"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // Interface defines the interface which Engine, EngineGroup and Session will implementate.

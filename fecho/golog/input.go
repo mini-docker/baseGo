@@ -1,11 +1,12 @@
 package golog
 
 import (
-	"fecho/utility"
 	"fmt"
 	"runtime"
 	"strings"
 	"sync/atomic"
+
+	"github.com/mini-docker/baseGo/fecho/utility"
 )
 
 func log_fastcheck(level severity) bool {

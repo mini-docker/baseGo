@@ -1,8 +1,6 @@
 package common
 
 import (
-	"baseGo/src/model"
-	"baseGo/src/model/code"
 	"crypto/md5"
 	"encoding/hex"
 	"encoding/json"
@@ -16,6 +14,8 @@ import (
 	"time"
 	"unicode"
 
+	"github.com/mini-docker/baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/model/code"
 	"github.com/shopspring/decimal"
 )
 

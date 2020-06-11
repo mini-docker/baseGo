@@ -1,13 +1,15 @@
 package middleware
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/utility"
-	"baseGo/src/model"
-	"baseGo/src/model/code"
-	"baseGo/src/red_admin/app/po"
-	"baseGo/src/red_admin/app/server"
 	"net/http"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/utility"
+	"github.com/mini-docker/baseGo/src/red_admin/app/po"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+
+	"github.com/mini-docker/baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/model/code"
 )
 
 var sessionService = new(SessionService)

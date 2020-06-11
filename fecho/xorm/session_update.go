@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 
-	"fecho/xorm/builder"
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 func (session *Session) cacheUpdate(table *core.Table, tableName, sqlStr string, args ...interface{}) error {

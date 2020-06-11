@@ -14,7 +14,7 @@ import (
 	"runtime"
 	"strings"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 
 	"gopkg.in/yaml.v2"
 )

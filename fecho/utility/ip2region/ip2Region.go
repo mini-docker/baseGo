@@ -2,7 +2,6 @@ package ip2region
 
 import (
 	"errors"
-	"fecho/utility"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -10,6 +9,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/mini-docker/baseGo/fecho/utility"
 )
 
 const (

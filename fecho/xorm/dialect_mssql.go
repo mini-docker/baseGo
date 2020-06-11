@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 var (

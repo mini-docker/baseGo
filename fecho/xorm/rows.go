@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // Rows rows wrapper a rows to

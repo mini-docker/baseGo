@@ -1,10 +1,11 @@
 package common
 
 import (
-	"baseGo/src/model/code"
-	"baseGo/src/red_admin/app/middleware/validate"
-	"baseGo/src/red_admin/app/po"
-	"baseGo/src/red_admin/app/server"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware/validate"
+	"github.com/mini-docker/baseGo/src/red_admin/app/po"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+
+	"github.com/mini-docker/baseGo/src/model/code"
 )
 
 //data := `{"code":"0","data":"GMT+08:00","message":"请求成功","success":true,"title":"","version":"app_01"}`

@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 func (session *Session) cacheDelete(table *core.Table, tableName, sqlStr string, args ...interface{}) error {

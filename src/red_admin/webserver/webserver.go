@@ -1,14 +1,15 @@
 package webserver
 
 import (
-	"baseGo/src/fecho/echo"
-	"baseGo/src/fecho/modules"
-	"baseGo/src/red_admin/app"
-	"baseGo/src/red_admin/app/middleware/validate"
-	"baseGo/src/red_admin/app/server"
 	"net"
 
-	config2 "baseGo/src/red_admin/conf"
+	"github.com/mini-docker/baseGo/src/fecho/echo"
+	"github.com/mini-docker/baseGo/src/fecho/modules"
+	"github.com/mini-docker/baseGo/src/red_admin/app"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware/validate"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+
+	config2 "github.com/mini-docker/baseGo/src/red_admin/conf"
 )
 
 var (

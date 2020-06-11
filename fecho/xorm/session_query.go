@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"fecho/xorm/builder"
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 func (session *Session) genQuerySQL(sqlorArgs ...interface{}) (string, []interface{}, error) {

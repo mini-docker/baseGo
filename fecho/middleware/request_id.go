@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"fecho/echo"
-	"fecho/utility"
+	"github.com/mini-docker/baseGo/fecho/echo"
+	"github.com/mini-docker/baseGo/fecho/utility"
 )
 
 type (

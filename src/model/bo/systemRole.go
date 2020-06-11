@@ -1,9 +1,10 @@
 package bo
 
 import (
-	"baseGo/src/fecho/xorm"
-	"baseGo/src/model"
-	"baseGo/src/model/structs"
+	"github.com/mini-docker/baseGo/src/fecho/xorm"
+
+	"github.com/mini-docker/baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/model/structs"
 )
 
 type SystemRoleBo struct{}

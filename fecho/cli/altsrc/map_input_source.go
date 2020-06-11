@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 // MapInputSource implements InputSourceContext to return

@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"log/syslog"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 var _ core.ILogger = &SyslogLogger{}

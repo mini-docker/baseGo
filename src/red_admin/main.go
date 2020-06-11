@@ -1,13 +1,12 @@
 package main
 
 import (
-	"baseGo/src/fecho/cli"
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/modules"
-	"baseGo/src/fecho/utility"
-	"baseGo/src/red_admin/conf"
-	"baseGo/src/red_admin/webserver"
 	"errors"
+
+	"github.com/mini-docker/baseGo/fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/modules"
+	"github.com/mini-docker/baseGo/fecho/utility"
 
 	"os"
 	"os/signal"
@@ -19,6 +18,8 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/mini-docker/baseGo/src/red_admin/conf"
+	"github.com/mini-docker/baseGo/src/red_admin/webserver"
 )
 
 const (

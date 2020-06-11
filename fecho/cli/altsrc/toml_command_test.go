@@ -11,7 +11,7 @@ import (
 	"os"
 	"testing"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 func TestCommandTomFileTest(t *testing.T) {

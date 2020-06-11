@@ -7,7 +7,7 @@ package xorm
 import (
 	"testing"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 	"github.com/stretchr/testify/assert"
 )
 

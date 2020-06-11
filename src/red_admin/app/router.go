@@ -1,10 +1,10 @@
 package app
 
 import (
-	"baseGo/src/red_admin/app/controller"
-	"baseGo/src/red_admin/app/middleware"
-	"baseGo/src/red_admin/app/server"
-	"baseGo/src/red_admin/conf"
+	"github.com/mini-docker/baseGo/src/red_admin/app/controller"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+	"github.com/mini-docker/baseGo/src/red_admin/conf"
 
 	"time"
 )

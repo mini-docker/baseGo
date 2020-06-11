@@ -1,10 +1,11 @@
 package server
 
 import (
-	"baseGo/src/fecho/golog"
 	"bufio"
 	"net"
 	"net/http"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
 
 	"github.com/pkg/errors"
 )

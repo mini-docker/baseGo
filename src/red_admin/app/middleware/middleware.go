@@ -1,6 +1,6 @@
 package middleware
 
-import "baseGo/src/red_admin/app/server"
+import "github.com/mini-docker/baseGo/src/red_admin/app/server"
 
 type (
 	// Skipper defines a function to skip middleware. Returning true skips processing

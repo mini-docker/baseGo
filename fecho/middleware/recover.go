@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"fecho/echo"
-	"fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/echo"
+	"github.com/mini-docker/baseGo/fecho/golog"
 )
 
 type (

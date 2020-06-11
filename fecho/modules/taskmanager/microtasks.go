@@ -3,11 +3,12 @@
 package taskmanager
 
 import (
-	"fecho/modules"
 	"sync/atomic"
 	"time"
 
-	"fecho/utility/atomicbool"
+	"github.com/mini-docker/baseGo/fecho/modules"
+
+	"github.com/mini-docker/baseGo/fecho/utility/atomicbool"
 )
 
 // TODO: getting some errors when in nanosecond precision for tests:

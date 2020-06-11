@@ -3,10 +3,11 @@
 package modules
 
 import (
-	"fecho/utility/atomicbool"
 	"container/list"
 	"os"
 	"time"
+
+	"github.com/mini-docker/baseGo/fecho/utility/atomicbool"
 )
 
 var modules *list.List

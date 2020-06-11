@@ -1,10 +1,11 @@
 package model
 
 import (
-	"baseGo/src/fecho/utility/sonyflake"
 	"sync"
 
 	"strconv"
+
+	"github.com/mini-docker/baseGo/src/fecho/utility/sonyflake"
 )
 
 var sf *sonyflake.Sonyflake

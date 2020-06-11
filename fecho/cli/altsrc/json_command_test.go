@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 const (

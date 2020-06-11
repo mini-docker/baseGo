@@ -7,7 +7,7 @@ package xorm
 import (
 	"time"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // EngineGroup defines an engine group

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"fecho/registry"
+	"github.com/mini-docker/baseGo/fecho/registry"
 )
 
 func main() {

@@ -1,10 +1,11 @@
 package middleware
 
 import (
-	"baseGo/src/red_admin/app/server"
 	"time"
 
-	"baseGo/src/fecho/golog"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
 )
 
 func TimeLog(next server.HandlerFunc) server.HandlerFunc {

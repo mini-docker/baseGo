@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
 	"github.com/stretchr/testify/assert"
 )
 

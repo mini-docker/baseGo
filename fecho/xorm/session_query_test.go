@@ -10,7 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
+
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
 
 	"github.com/stretchr/testify/assert"
 )

@@ -10,8 +10,8 @@ import (
 	"reflect"
 	"strings"
 
-	"fecho/xorm/builder"
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 const (

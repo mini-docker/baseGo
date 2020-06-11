@@ -1,8 +1,6 @@
 package server
 
 import (
-	"baseGo/src/model"
-	"baseGo/src/red_admin/app/middleware/validate"
 	"bytes"
 	"crypto/md5"
 	"encoding/hex"
@@ -14,6 +12,10 @@ import (
 	"strings"
 	"time"
 	"unsafe"
+
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware/validate"
+
+	"github.com/mini-docker/baseGo/src/model"
 )
 
 const (

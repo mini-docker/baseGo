@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 // NewJSONSourceFromFlagFunc returns a func that takes a cli.Context

@@ -1,16 +1,19 @@
 package middleware
 
 import (
-	"baseGo/src/fecho/utility"
-	"baseGo/src/red_admin/conf"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"time"
 
-	"baseGo/src/fecho/common"
-	"baseGo/src/fecho/golog"
-	"baseGo/src/model"
+	"github.com/mini-docker/baseGo/fecho/utility"
+
+	"github.com/mini-docker/baseGo/src/red_admin/conf"
+
+	"github.com/mini-docker/baseGo/fecho/common"
+	"github.com/mini-docker/baseGo/fecho/golog"
+
+	"github.com/mini-docker/baseGo/src/model"
 
 	"github.com/go-redis/redis"
 )

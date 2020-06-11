@@ -3,8 +3,9 @@ package conf
 import (
 	"sync"
 
-	"baseGo/src/fecho/utility/sonyflake"
 	"strconv"
+
+	"github.com/mini-docker/baseGo/src/fecho/utility/sonyflake"
 )
 
 var sf *sonyflake.Sonyflake

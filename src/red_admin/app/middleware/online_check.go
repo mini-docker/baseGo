@@ -1,13 +1,16 @@
 package middleware
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/utility"
-	"baseGo/src/github.com/jasonlvhit/gocron"
-	"baseGo/src/model"
-	"baseGo/src/model/bo"
-	"baseGo/src/red_admin/conf"
 	"encoding/json"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/utility"
+
+	"github.com/mini-docker/baseGo/src/red_admin/conf"
+
+	"github.com/jasonlvhit/gocron"
+	"github.com/mini-docker/baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/model/bo"
 
 	"strconv"
 )

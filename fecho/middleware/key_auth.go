@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"fecho/echo"
+	"github.com/mini-docker/baseGo/fecho/echo"
 )
 
 type (

@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"fecho/golog"
-	"fecho/modules"
-	"fecho/registry"
-	"fecho/utility/uuid"
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/modules"
+	"github.com/mini-docker/baseGo/fecho/registry"
+	"github.com/mini-docker/baseGo/fecho/utility/uuid"
 )
 
 var (

@@ -40,7 +40,6 @@ import (
 	"bytes"
 	"crypto/tls"
 	"errors"
-	"fecho/golog"
 	"fmt"
 	"io"
 	stdLog "log"
@@ -52,6 +51,8 @@ import (
 	"runtime"
 	"sync"
 	"time"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
 )
 
 type (

@@ -12,8 +12,8 @@ import (
 	"strings"
 	"time"
 
-	"fecho/xorm/builder"
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 func (engine *Engine) buildConds(table *core.Table, bean interface{},

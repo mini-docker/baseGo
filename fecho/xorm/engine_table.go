@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"strings"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // TableNameWithSchema will automatically add schema prefix on table name

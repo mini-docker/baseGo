@@ -1,18 +1,20 @@
 package services
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/utility"
-	"baseGo/src/fecho/utility/uuid"
-	"baseGo/src/model"
-	"baseGo/src/model/bo"
-	"baseGo/src/model/code"
-	"baseGo/src/model/structs"
-	"baseGo/src/red_admin/app/middleware"
-	"baseGo/src/red_admin/app/middleware/validate"
-	"baseGo/src/red_admin/conf"
 	"fmt"
 	"regexp"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/utility"
+	"github.com/mini-docker/baseGo/fecho/utility/uuid"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware/validate"
+	"github.com/mini-docker/baseGo/src/red_admin/conf"
+
+	"github.com/mini-docker/baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/model/bo"
+	"github.com/mini-docker/baseGo/src/model/code"
+	"github.com/mini-docker/baseGo/src/model/structs"
 )
 
 type SystemAdminService struct{}

@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"fecho/xorm/core"
 	"github.com/jackc/pgx/stdlib"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 func TestParsePostgres(t *testing.T) {

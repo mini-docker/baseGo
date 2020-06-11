@@ -1,6 +1,6 @@
 package middleware
 
-import "fecho/echo"
+import "github.com/mini-docker/baseGo/fecho/echo"
 
 type (
 	// MethodOverrideConfig defines the config for MethodOverride middleware.

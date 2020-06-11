@@ -14,11 +14,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"fecho/golog/filelog"
-	"fecho/modules"
-	"fecho/utility"
-	"fecho/utility/atomicbool"
 	"fmt"
+
+	"github.com/mini-docker/baseGo/fecho/golog/filelog"
+	"github.com/mini-docker/baseGo/fecho/modules"
+	"github.com/mini-docker/baseGo/fecho/utility"
+	"github.com/mini-docker/baseGo/fecho/utility/atomicbool"
 )
 
 // concept

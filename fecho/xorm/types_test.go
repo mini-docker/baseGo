@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"testing"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 	"github.com/stretchr/testify/assert"
 )
 

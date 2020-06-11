@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // Insert insert one or more beans

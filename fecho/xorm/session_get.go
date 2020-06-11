@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"strconv"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // Get retrieve one record from database, bean's non-empty fields

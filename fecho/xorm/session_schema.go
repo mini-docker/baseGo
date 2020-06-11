@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // Ping test if database is ok

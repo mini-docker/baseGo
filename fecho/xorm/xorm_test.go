@@ -7,11 +7,11 @@ import (
 	"strings"
 	"testing"
 
-	"fecho/xorm/core"
 	_ "github.com/denisenkom/go-mssqldb"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 	_ "github.com/ziutek/mymysql/godrv"
 )
 

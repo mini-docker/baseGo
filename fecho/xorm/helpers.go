@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // str2PK convert string value to primary key value according to tp

@@ -2,13 +2,14 @@ package valid
 
 import (
 	"errors"
-	"fecho/valid/rule"
 	"fmt"
 	"html"
 	"log"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/mini-docker/baseGo/fecho/valid/rule"
 )
 
 //

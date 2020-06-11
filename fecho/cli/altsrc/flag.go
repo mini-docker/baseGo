@@ -6,7 +6,7 @@ import (
 	"strings"
 	"syscall"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 // FlagInputSourceExtension is an extension interface of cli.Flag that

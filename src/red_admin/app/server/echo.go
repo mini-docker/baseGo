@@ -37,7 +37,6 @@ Learn more at https://echo.labstack.com
 package server
 
 import (
-	"baseGo/src/fecho/golog"
 	"bytes"
 	stdContext "context"
 	"crypto/tls"
@@ -53,6 +52,8 @@ import (
 	"runtime"
 	"sync"
 	"time"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
 	//"github.com/labstack/gommon/color"
 	//"github.com/labstack/gommon/log"
 	//"golang.org/x/crypto/acme/autocert"

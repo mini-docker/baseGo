@@ -1,10 +1,11 @@
 package middleware
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/red_admin/app/server"
 	"fmt"
 	"runtime"
+
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
 )
 
 type (

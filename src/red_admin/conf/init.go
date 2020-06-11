@@ -1,8 +1,9 @@
 package conf
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/fecho/golog"
+
+	"github.com/mini-docker/baseGo/src/model"
 )
 
 // SetConfig 设置配置参数

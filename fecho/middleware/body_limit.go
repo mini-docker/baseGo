@@ -5,8 +5,8 @@ import (
 	"io"
 	"sync"
 
-	"fecho/echo"
-	"fecho/utility"
+	"github.com/mini-docker/baseGo/fecho/echo"
+	"github.com/mini-docker/baseGo/fecho/utility"
 )
 
 type (

@@ -1,11 +1,12 @@
 package conf
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/utility"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/mini-docker/baseGo/src/fecho/golog"
+	"github.com/mini-docker/baseGo/src/fecho/utility"
 )
 
 // initLog 系统运行初始化日志

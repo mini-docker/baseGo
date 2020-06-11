@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"strconv"
 
-	"fecho/echo"
+	"github.com/mini-docker/baseGo/fecho/echo"
 )
 
 type (

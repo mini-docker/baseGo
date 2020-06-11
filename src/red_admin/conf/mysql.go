@@ -1,11 +1,12 @@
 package conf
 
 import (
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/xorm"
-	"baseGo/src/fecho/xorm/core"
 	"fmt"
 	"sync"
+
+	"github.com/mini-docker/baseGo/src/fecho/golog"
+	"github.com/mini-docker/baseGo/src/fecho/xorm"
+	"github.com/mini-docker/baseGo/src/fecho/xorm/core"
 )
 
 var (

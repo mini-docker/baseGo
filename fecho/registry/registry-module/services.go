@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"fecho/golog"
-	"fecho/registry"
+	"github.com/mini-docker/baseGo/fecho/golog"
+	"github.com/mini-docker/baseGo/fecho/registry"
 )
 
 type Service struct {

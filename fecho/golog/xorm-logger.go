@@ -2,9 +2,10 @@
 package golog
 
 import (
-	"fecho/xorm/core"
 	"errors"
 	"sync/atomic"
+
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 type LoggingXorm struct {

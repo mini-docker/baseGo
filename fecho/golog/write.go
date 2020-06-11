@@ -1,10 +1,11 @@
 package golog
 
 import (
-	"fecho/modules/taskmanager"
-	"fecho/utility"
 	"log"
 	"time"
+
+	"github.com/mini-docker/baseGo/fecho/modules/taskmanager"
+	"github.com/mini-docker/baseGo/fecho/utility"
 )
 
 func writeLine(line *logLine) {

@@ -1,8 +1,9 @@
 package validate
 
 import (
-	"baseGo/src/fecho/valid"
-	"baseGo/src/model/code"
+	"github.com/mini-docker/baseGo/fecho/valid"
+
+	"github.com/mini-docker/baseGo/src/model/code"
 )
 
 var (

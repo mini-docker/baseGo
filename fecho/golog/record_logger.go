@@ -1,11 +1,12 @@
 package golog
 
 import (
-	"fecho/golog/filelog"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
+
+	"github.com/mini-docker/baseGo/fecho/golog/filelog"
 )
 
 // 日志

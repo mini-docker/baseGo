@@ -3,7 +3,7 @@ package xorm
 import (
 	"sync"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 const (

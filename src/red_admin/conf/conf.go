@@ -1,12 +1,13 @@
 package conf
 
 import (
-	"baseGo/src/fecho/utility"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
 	"sync"
+
+	"github.com/mini-docker/baseGo/src/fecho/utility"
 
 	"gopkg.in/yaml.v2"
 )

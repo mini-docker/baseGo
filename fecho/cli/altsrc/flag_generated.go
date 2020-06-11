@@ -3,7 +3,7 @@ package altsrc
 import (
 	"flag"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 // WARNING: This file is generated!

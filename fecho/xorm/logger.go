@@ -9,7 +9,7 @@ import (
 	"io"
 	"log"
 
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // default log options

@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"reflect"
 
-	"fecho/xorm/builder"
-	"fecho/xorm/core"
+	"github.com/mini-docker/baseGo/fecho/xorm/builder"
+	"github.com/mini-docker/baseGo/fecho/xorm/core"
 )
 
 // Exist returns true if the record exist otherwise return false

@@ -3,7 +3,7 @@ package altsrc
 import (
 	"time"
 
-	"fecho/cli"
+	"github.com/mini-docker/baseGo/fecho/cli"
 )
 
 // InputSourceContext is an interface used to allow

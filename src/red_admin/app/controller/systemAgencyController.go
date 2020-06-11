@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"baseGo/src/red_admin/app/controller/common"
-	"baseGo/src/red_admin/app/server"
-	"baseGo/src/red_admin/app/services"
+	"github.com/mini-docker/baseGo/src/red_admin/app/controller/common"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+	"github.com/mini-docker/baseGo/src/red_admin/app/services"
 )
 
 // 超管控制器

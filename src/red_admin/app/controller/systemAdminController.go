@@ -1,13 +1,14 @@
 package controller
 
 import (
-	"baseGo/src/model"
-	"baseGo/src/model/code"
-	"baseGo/src/red_admin/app/controller/common"
-	"baseGo/src/red_admin/app/middleware"
-	"baseGo/src/red_admin/app/middleware/validate"
-	"baseGo/src/red_admin/app/server"
-	"baseGo/src/red_admin/app/services"
+	"github.com/mini-docker/baseGo/src/red_admin/app/controller/common"
+	"github.com/mini-docker/baseGo/src/red_admin/app/server"
+
+	"github.com/mini-docker/baseGo/src/model"
+	"github.com/mini-docker/baseGo/src/model/code"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware"
+	"github.com/mini-docker/baseGo/src/red_admin/app/middleware/validate"
+	"github.com/mini-docker/baseGo/src/red_admin/app/services"
 )
 
 // 系统管理员控制器

@@ -1,6 +1,6 @@
 package help
 
-import "fecho/xorm"
+import "github.com/mini-docker/baseGo/fecho/xorm"
 
 type Times struct {
 	StartTime int `json:"startTime"` //开始时间

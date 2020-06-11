@@ -16,8 +16,8 @@ import (
 	"runtime"
 	"strings"
 
-	"fecho/valid"
-	"fecho/xorm/help"
+	"github.com/mini-docker/baseGo/fecho/valid"
+	"github.com/mini-docker/baseGo/fecho/xorm/help"
 )
 
 type (
