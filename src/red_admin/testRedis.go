@@ -1,16 +1,26 @@
 package main
 
-import "github.com/go-redis/redis"
+import (
+	"github.com/go-redis/redis"
+)
+
+var redisdb *redis.Client
+
+// 初始化连接
+func initClient() (err error) {
+	redisdb = redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+	// defer redisdb.Close()
+	_, err = redisdb.Ping().Result()
+	if err != nil {
+		return err
+	}
+	return nil
+}
 
 func main() {
-	client := redis.NewClient(&redis.Options{
-		Addr:     "127.0.0.1:6379",
-		Password: "",
-		DB:       0,
-	})
-	pong, err := client.Ping(client.Context()).Result()
-	if err != nil {
-		return nil, err
-	}
-	return client, nil
+	initClient()
 }

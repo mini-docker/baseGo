@@ -10,8 +10,6 @@ import (
 	"errors"
 	"fmt"
 	"time"
-
-	"github.com/go-redis/redis"
 )
 
 type SessionService struct {
@@ -39,12 +37,15 @@ func (ss *SessionService) GetSession(sessionIdFull string) (*model.AdminSession,
 	defer redisClient.Close()
 	// 获取session数据
 	result, err := redisClient.Do("GET", sessionIdFull)
-	if err == redis.Nil {
-		return nil, err
-	} else if err != nil {
+	fmt.Println(sessionIdFull, "sessionIdFull")
+	// if err == redis.Nil {
+	// 	return nil, err
+	// } else
+	if err != nil {
 		golog.Error("SessionService", "GetSession", "err:", err)
 		return nil, err
 	}
+	fmt.Println(result, "result")
 	if result.(string) == "" {
 		return nil, errors.New("Not found session info")
 	}
@@ -96,27 +97,36 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 	se := new(SessionCache)
 	// 根据 listkey 和 session.User.Id 获取 对应结果
 	sestr, err := redisClient.Do("HGet", listKey, fmt.Sprint(session.User.Id))
-	if err != nil && err != redis.Nil {
+	if err != nil {
 		golog.Error("ChatSessionService", "SaveSession", "err:", err)
 		return err
 	}
-	json.Unmarshal([]byte(sestr.(string)), se)
+	fmt.Println(sestr, "sestr233333")
+	if sestr != nil {
+		json.Unmarshal([]byte(sestr.(string)), se)
 
-	// 如果有结果的 SessionId 和匹配的session.SessionId相同 那么 就不把 东西存进 redis list
-	if se == nil || se.Sess == nil || len(se.Sess) == 0 {
-		se.Sess = []string{session.SessionId}
-	} else {
-		if !common.Contain(se.Sess, session.SessionId) {
-			se.Sess = append(se.Sess, session.SessionId)
+		// 如果有结果的 SessionId 和匹配的session.SessionId相同 那么 就不把 东西存进 redis list
+		if se == nil || se.Sess == nil || len(se.Sess) == 0 {
+			se.Sess = []string{session.SessionId}
+		} else {
+			if !common.Contain(se.Sess, session.SessionId) {
+				se.Sess = append(se.Sess, session.SessionId)
+			}
+
 		}
+		ksjson, err := json.Marshal(se)
+		if err != nil {
+			golog.Error("SessionService", "SaveSession", "err:", err)
+			return err
+		}
+		redisClient.Do("HSet", listKey, fmt.Sprint(session.User.Id), ksjson)
+	} else {
+		// se.Sess = []string{session.SessionId}
 
+		// 无返回 需要判断 默认账号 将session信息设置进去
+		redisClient.Do("HSet", listKey, fmt.Sprint(session.User.Id), -1)
 	}
-	ksjson, err := json.Marshal(se)
-	if err != nil && err != redis.Nil {
-		golog.Error("SessionService", "SaveSession", "err:", err)
-		return err
-	}
-	redisClient.Do("HSet", listKey, fmt.Sprint(session.User.Id), ksjson)
+
 	return nil
 }
 
@@ -125,20 +135,26 @@ func (ss *SessionService) DelSessionId(listkey string, id int) error {
 	redisClient := conf.GetRedis().Get()
 	defer redisClient.Close()
 	sessionstr, err := redisClient.Do("HGet", listkey, fmt.Sprint(id))
-	if err != nil && err != redis.Nil {
+	if err != nil {
 		golog.Error("ChatSessionService", "DelMemberSessionId", "err:", err)
 		return err
 	}
 	se := new(SessionCache)
-	json.Unmarshal([]byte(sessionstr.(string)), se)
-	for _, ses := range se.Sess {
-		// 删除session数据
-		_, err = redisClient.Do("Del", ses)
-		if err != nil && err != redis.Nil {
-			golog.Error("ChatSessionService", "DelMemberSessionId", "err:", err)
-			return err
+	fmt.Println(se, "sesese")
+	fmt.Println(sessionstr, "sessionstr")
+	if sessionstr != nil {
+		json.Unmarshal([]byte(sessionstr.(string)), se)
+
+		for _, ses := range se.Sess {
+			// 删除session数据
+			_, err = redisClient.Do("Del", ses)
+			if err != nil {
+				golog.Error("ChatSessionService", "DelMemberSessionId", "err:", err)
+				return err
+			}
 		}
+		redisClient.Do("HDel", listkey, fmt.Sprint(id))
 	}
-	redisClient.Do("HDel", listkey, fmt.Sprint(id))
+
 	return nil
 }

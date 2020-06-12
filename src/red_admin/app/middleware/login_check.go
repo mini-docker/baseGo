@@ -7,6 +7,7 @@ import (
 	"baseGo/src/model/code"
 	"baseGo/src/red_admin/app/po"
 	"baseGo/src/red_admin/app/server"
+	"fmt"
 	"net/http"
 )
 
@@ -36,6 +37,7 @@ func AuthInit(next server.HandlerFunc) server.HandlerFunc {
 	return func(c server.Context) error {
 		// 获取cookie信息
 		sid := c.Request().Header.Get(model.SessionKey)
+		fmt.Println(sid, "sid")
 		if sid == "" {
 			return NeedLoginJsonMsg(c, code.LOGIN_INFO_GET_FAIL)
 		}

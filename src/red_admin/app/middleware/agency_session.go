@@ -6,8 +6,6 @@ import (
 	"fmt"
 
 	"baseGo/src/fecho/golog"
-
-	"github.com/go-redis/redis"
 )
 
 type AdminSessionService struct {
@@ -122,7 +120,7 @@ func (ss *AdminSessionService) DelSessionId(listkey string, id int) error {
 	redisClient := conf.GetRedis().Get()
 	defer redisClient.Close()
 	sessionstr, err := redisClient.Do("HGet", listkey, fmt.Sprint(id))
-	if err != nil && err != redis.Nil {
+	if err != nil {
 		golog.Error("SessionService", "DelMemberSessionId", "err:", err)
 		return err
 	}
@@ -131,7 +129,7 @@ func (ss *AdminSessionService) DelSessionId(listkey string, id int) error {
 	for _, ses := range se.Sess {
 		// 删除session数据
 		_, err = redisClient.Do("Del", ses)
-		if err != nil && err != redis.Nil {
+		if err != nil {
 			golog.Error("SessionService", "DelMemberSessionId", "err:", err)
 			return err
 		}

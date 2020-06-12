@@ -267,7 +267,7 @@ func (SystemAdminService) Login(account, password, ip string, device int) (*mode
 		}
 		return session, nil
 	}
-	return nil, nil
+	// return nil, nil
 }
 
 // 注销
