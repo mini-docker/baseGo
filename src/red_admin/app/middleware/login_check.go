@@ -46,6 +46,7 @@ func AuthInit(next server.HandlerFunc) server.HandlerFunc {
 			return NeedLoginJsonMsg(c, code.LOGIN_INFO_GET_FAIL)
 		}
 		// 获取session信息
+		// model.RED_ADMIN_SESSION_LIST_KEY
 		session, err := sessionService.GetSession(sid)
 		if err == nil {
 			if session.TimeOut < utility.GetNowTimestamp() {
