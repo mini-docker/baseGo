@@ -92,13 +92,17 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 	fmt.Println(sessionBs, "sessionBs") //对象
 	// 存入redis,sessionKey不过期
 	setTime = -1
+	fmt.Println(setTime, "setTime")
 	redisClient := conf.GetRedis().Get()
 	defer redisClient.Close()
 	// 设置 SessionId 为 对象转为的字符串
 	fmt.Println(string(sessionBs), "stringBs")
 	fmt.Println(listKey, "listKey")
 	// redisClient.Do("Set", session.SessionId, string(sessionBs), setTime)
-	redisClient.Do("Set", session.SessionId, string(sessionBs), setTime)
+
+	redisClient.Do("Set", session.SessionId, string(sessionBs))
+	redisClient.Do("expire", session.SessionId, setTime)
+
 	resultf, err := redisClient.Do("Get", session.SessionId)
 	if err != nil {
 		fmt.Println(err, "err")
@@ -116,7 +120,10 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 	// fmt.Println(sestr.(map[string]string), "bytesss")
 	if sestr != nil {
 
-		json.Unmarshal([]byte(sestr.(string)), se)
+		fResult := string(sestr.([]byte))
+		fmt.Println(fResult, "fResult")
+		// json.Unmarshal([]byte(sestr.(string)), se)
+
 		fmt.Println(se, "sesese")
 
 		// 如果有结果的 SessionId 和匹配的session.SessionId相同 那么 就不把 东西存进 redis list
@@ -128,6 +135,14 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 			}
 
 		}
+		ksjson, err := json.Marshal(se)
+		if err != nil {
+			golog.Error("SessionService", "SaveSession", "err:", err)
+			return err
+		}
+		redisClient.Do("HSet", listKey, fmt.Sprint(session.User.Id), ksjson)
+	} else {
+		se.Sess = []string{session.SessionId}
 		ksjson, err := json.Marshal(se)
 		if err != nil {
 			golog.Error("SessionService", "SaveSession", "err:", err)
@@ -180,21 +195,24 @@ func (ss *SessionService) DelSessionId(listkey string, id int) error {
 	if sessionstr != nil {
 		// json.Unmarshal([]byte(strsf.(string)), se)
 		strsf := string(sessionstr.([]byte))
-		var dat map[string]interface{}
+		var dat SessionCache
 		if err := json.Unmarshal([]byte(strsf), &dat); err == nil {
 			fmt.Println("==============json str 转map=======================")
-			fmt.Println(dat)
-			fmt.Println(dat["sess"])
+			fmt.Println(dat, "datttt")
+			// fmt.Println(dat["sess"])
 		}
+		se = &dat
 
 		for _, ses := range se.Sess {
 			// 删除session数据
+			fmt.Println(ses, "sessesses")
 			_, err = redisClient.Do("Del", ses)
 			if err != nil {
 				golog.Error("ChatSessionService", "DelMemberSessionId", "err:", err)
 				return err
 			}
 		}
+		fmt.Println(id, "ididid")
 		redisClient.Do("HDel", listkey, fmt.Sprint(id))
 	}
 
