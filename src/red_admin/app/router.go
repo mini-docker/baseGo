@@ -14,9 +14,9 @@ var (
 	// SystemRoleController          = new(controller.SystemRoleController)
 	SystemAdminController = new(controller.SystemAdminController)
 
-	// SystemLineMealController      = new(controller.SystemLineMealController)
-	// SystemLineController          = new(controller.SystemLineController)
-	SystemAgencyController = new(controller.SystemAgencyController)
+	SystemLineMealController = new(controller.SystemLineMealController)
+	SystemLineController     = new(controller.SystemLineController)
+	SystemAgencyController   = new(controller.SystemAgencyController)
 
 // SystemGameController          = new(controller.SystemGameController)
 // SystemRoomController          = new(controller.SystemRoomController)
@@ -75,19 +75,19 @@ func RegisteRouter(echo *server.Echo) {
 		// AuthApiApp.POST("/system/logout", SystemAdminController.Logout)      // 注销
 
 		// 线路套餐管理ok
-		// AuthApiApp.POST("/system/queryLineMealList", SystemLineMealController.QueryLineMealList)    // 查询线路套餐列表ok
-		// AuthApiApp.POST("/system/addLineMeal", SystemLineMealController.AddLineMeal)                // 添加线路套餐
-		// AuthApiApp.POST("/system/queryLineMealOne", SystemLineMealController.QueryLineMealOne)      // 查询单个线路套餐
-		// AuthApiApp.POST("/system/editLineMeal", SystemLineMealController.EidtLineMeal)              // 修改线路套餐
-		// AuthApiApp.POST("/system/queryLineMealCode", SystemLineMealController.QueryAllLineMealCode) // 获取套餐枚举
+		AuthApiApp.POST("/system/queryLineMealList", SystemLineMealController.QueryLineMealList)    // 查询线路套餐列表ok
+		AuthApiApp.POST("/system/addLineMeal", SystemLineMealController.AddLineMeal)                // 添加线路套餐
+		AuthApiApp.POST("/system/queryLineMealOne", SystemLineMealController.QueryLineMealOne)      // 查询单个线路套餐
+		AuthApiApp.POST("/system/editLineMeal", SystemLineMealController.EidtLineMeal)              // 修改线路套餐
+		AuthApiApp.POST("/system/queryLineMealCode", SystemLineMealController.QueryAllLineMealCode) // 获取套餐枚举
 
 		// 线路管理ok
-		// AuthApiApp.POST("/system/queryLineList", SystemLineController.QueryLineList)   // 查询线路列表ok
-		// AuthApiApp.POST("/system/queryLineCode", SystemLineController.QueryAllLineId)  // 获取线路id枚举
-		// AuthApiApp.POST("/system/addLine", SystemLineController.AddLine)               // 添加线路
-		// AuthApiApp.POST("/system/queryLineOne", SystemLineController.QueryLineOne)     // 查询单个线路
-		// AuthApiApp.POST("/system/editLine", SystemLineController.EidtLine)             // 修改线路
-		// AuthApiApp.POST("/system/editLineStatus", SystemLineController.EidtLineStatus) // 修改线路状态
+		AuthApiApp.POST("/system/queryLineList", SystemLineController.QueryLineList)   // 查询线路列表ok
+		AuthApiApp.POST("/system/queryLineCode", SystemLineController.QueryAllLineId)  // 获取线路id枚举
+		AuthApiApp.POST("/system/addLine", SystemLineController.AddLine)               // 添加线路
+		AuthApiApp.POST("/system/queryLineOne", SystemLineController.QueryLineOne)     // 查询单个线路
+		AuthApiApp.POST("/system/editLine", SystemLineController.EidtLine)             // 修改线路
+		AuthApiApp.POST("/system/editLineStatus", SystemLineController.EidtLineStatus) // 修改线路状态
 
 		// 业主超管管理ok
 		AuthApiApp.POST("/system/queryAgencyAdminList", SystemAgencyController.QueryAgencyAdminList) // 查询超管列表ok
