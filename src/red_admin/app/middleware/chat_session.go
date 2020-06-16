@@ -112,6 +112,7 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 	se := new(SessionCache)
 	// 根据 listkey 和 session.User.Id 获取 对应结果
 	sestr, err := redisClient.Do("HGet", listKey, fmt.Sprint(session.User.Id))
+	fmt.Println(fmt.Sprint(session.User.Id), "HGetId", listKey)
 	if err != nil {
 		golog.Error("ChatSessionService", "SaveSession", "err:", err)
 		return err
@@ -120,8 +121,16 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 	// fmt.Println(sestr.(map[string]string), "bytesss")
 	if sestr != nil {
 
-		fResult := string(sestr.([]byte))
-		fmt.Println(fResult, "fResult")
+		fResults := string(sestr.([]byte))
+		fmt.Println(fResults, "fResults")
+
+		var dat SessionCache
+		if err := json.Unmarshal([]byte(fResults), &dat); err == nil {
+			fmt.Println("==============json str 转map=======================")
+			fmt.Println(dat, "fResults_dat")
+			// fmt.Println(dat["sess"])
+		}
+		se = &dat
 		// json.Unmarshal([]byte(sestr.(string)), se)
 
 		fmt.Println(se, "sesese")
@@ -148,6 +157,7 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 			golog.Error("SessionService", "SaveSession", "err:", err)
 			return err
 		}
+		fmt.Println(ksjson, "ksjsonksjson", fmt.Sprint(session.User.Id), listKey)
 		redisClient.Do("HSet", listKey, fmt.Sprint(session.User.Id), ksjson)
 	}
 	// else {
