@@ -37,6 +37,7 @@ CREATE TABLE `red_system_admin` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+-- /system/agencyCode
 -- ----------------------------
 -- 将添加的超管 手动 添加到数据库
 -- red_agency ==> red_system_admin
@@ -44,6 +45,23 @@ CREATE TABLE `red_system_admin` (
 -- ----------------------------
 
 
+
+
+
+-- ----------------------------
+-- Table structure for cate
+-- ----------------------------
+DROP TABLE IF EXISTS `red_packet_site`;
+CREATE TABLE `red_packet_site` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `site_name` varchar(64) NOT NULL,
+  `status` TINYINT(1) DEFAULT 1,
+  `create_time` int(11) NOT NULL,
+  `delete_time` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 

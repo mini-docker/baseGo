@@ -4,6 +4,7 @@ import (
 	"baseGo/src/fecho/xorm"
 	"baseGo/src/model"
 	"baseGo/src/model/structs"
+	"fmt"
 )
 
 type SystemAgencyBo struct{}
@@ -47,6 +48,7 @@ func (*SystemAgencyBo) QuerySystemAgencyList(sess *xorm.Session, lineId, account
 	if status != 0 {
 		sess.Where("status = ? ", status)
 	}
+	fmt.Println(lineId, agencyId, account, isOnline, status, "testAgencyAccount")
 	count, err := sess.Table(new(structs.Agency).TableName()).Limit(pageSize, (page-1)*pageSize).OrderBy("id desc").FindAndCount(&rows)
 	if err != nil {
 		return 0, nil, err
