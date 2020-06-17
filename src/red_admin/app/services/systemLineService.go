@@ -10,6 +10,7 @@ import (
 	"baseGo/src/red_admin/app/middleware/validate"
 	"baseGo/src/red_admin/conf"
 	"encoding/json"
+	"fmt"
 )
 
 type SystemLineService struct{}
@@ -64,6 +65,7 @@ func (SystemLineService) AddSystemLine(lineId, lineName string, limitCost float6
 	systemLine.CreateTime = utility.GetNowTimestamp()
 	_, err := SystemLineBo.AddLine(sess, systemLine)
 	if err != nil {
+		fmt.Println(err, "err_systemLine_1")
 		return &validate.Err{Code: code.INSET_ERROR}
 	}
 	lineByte, _ := json.Marshal(systemLine)
@@ -71,6 +73,7 @@ func (SystemLineService) AddSystemLine(lineId, lineName string, limitCost float6
 	// 写入redis
 	_, err = redisClient.Do("HSet", model.SYSTEM_LINE_REDIS_KEY, systemLine.LineId, string(lineByte))
 	if err != nil {
+		fmt.Println(err, "err_systemLine_2")
 		golog.Error("systemLineService", "EditSystemLine", "写入redis失败", err)
 	}
 	// 设置超时时间6分钟

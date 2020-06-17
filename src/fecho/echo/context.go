@@ -192,7 +192,7 @@ type (
 		// See `Echo#ServeHTTP()`
 		Reset(r *http.Request, w http.ResponseWriter)
 
-		//云创一指专用
+		//ycyz专用
 
 		// 获取并校验信息
 		ValidRequest(column interface{}) error

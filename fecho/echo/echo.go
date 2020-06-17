@@ -79,7 +79,7 @@ type (
 		// Mutex            sync.RWMutex
 		Logger *golog.LoggingInterface
 
-		ErrCodes    ErrCode //云创一指的错误码
+		ErrCodes    ErrCode //ycyz的错误码
 		SiteId      string
 		SiteIndexId string
 
@@ -302,7 +302,7 @@ func (e *Echo) Router() *Router {
 	return e.router
 }
 
-// 云创一指的错误码返回
+// ycyz的错误码返回
 func (e *Echo) YcyzDefaultHTTPErrorHandler(err error, c Context) {
 	var (
 		code = http.StatusInternalServerError

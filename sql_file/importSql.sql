@@ -1,19 +1,51 @@
+
+-- ----------------------------
+-- Table structure for cate
+-- ----------------------------
+DROP TABLE IF EXISTS `red_agency`;
+CREATE TABLE `red_agency` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `account` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `is_online` TINYINT(1) DEFAULT 2,
+  `is_admin` TINYINT(1) DEFAULT 1,
+  `status` TINYINT(1) DEFAULT 2,
+  `create_time` int(11) NOT NULL,
+  `delete_time` int(11) NOT NULL,
+  `edit_time` int(11) NOT NULL,
+  `white_ip_address` varchar(255) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
 -- ----------------------------
 -- Table structure for cate
 -- ----------------------------
 DROP TABLE IF EXISTS `red_system_admin`;
 CREATE TABLE `red_system_admin` (
   `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `account` varchar(64) DEFAULT '',
-  `password` varchar(64) NOT NULL,
   `role_id` varchar(64) NOT NULL,
+  `account` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `is_online` TINYINT(1) DEFAULT 2,
-  `last_ip` varchar(64) NOT NULL,
-  `last_login_time` int(11) NOT NULL,
   `create_time` int(11) NOT NULL,
   `delete_time` int(11) NOT NULL,
+  `last_login_time` int(11) NOT NULL,
+  `last_ip` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- 将添加的超管 手动 添加到数据库
+-- red_agency ==> red_system_admin
+-- 
+-- ----------------------------
+
+
+
+
 
 -- ----------------------------
 -- Table structure for cate
@@ -84,9 +116,9 @@ CREATE TABLE `red_system_line` (
   `status` TINYINT(1) DEFAULT 1,
   `trans_type` TINYINT(1) DEFAULT 1,
   `api_url` varchar(64) NOT NULL,
-  `md5key` varchar(64) NOT NULL,
-  `rsa_pub_key` varchar(64) NOT NULL,
-  `rsa_pri_key` varchar(64) NOT NULL,
+  `md5key` varchar(255) NOT NULL,
+  `rsa_pub_key` varchar(1024) NOT NULL,
+  `rsa_pri_key` varchar(1024) NOT NULL,
   `create_time` int(11) NOT NULL,
   `edit_time` int(11) NOT NULL,
   PRIMARY KEY (`Id`)

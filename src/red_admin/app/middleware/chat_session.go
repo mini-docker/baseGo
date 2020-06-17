@@ -91,7 +91,7 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 	}
 	fmt.Println(sessionBs, "sessionBs") //对象
 	// 存入redis,sessionKey不过期
-	setTime = -1
+	// setTime = -1
 	fmt.Println(setTime, "setTime")
 	redisClient := conf.GetRedis().Get()
 	defer redisClient.Close()

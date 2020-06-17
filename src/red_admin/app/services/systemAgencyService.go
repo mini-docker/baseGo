@@ -8,6 +8,7 @@ import (
 	"baseGo/src/model/structs"
 	"baseGo/src/red_admin/app/middleware/validate"
 	"baseGo/src/red_admin/conf"
+	"fmt"
 	"regexp"
 )
 
@@ -26,6 +27,7 @@ func (SystemAgencyService) QueryAgencyAdminList(lineId, account string, isOnline
 	// 获取全部超管信息
 	count, agencys, err := AgencyBo.QuerySystemAgencyAdminList(sess, lineId, account, isOnline, page, pageSize)
 	if err != nil {
+		fmt.Println("QueryAgencyAdminList error", err)
 		return nil, &validate.Err{Code: code.QUERY_FAILED}
 	}
 	pageResp := new(structs.PageListResp)
