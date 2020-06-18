@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	// SystemMenuController          = new(controller.SystemMenuController)
+	SystemMenuController  = new(controller.SystemMenuController)
 	SystemRoleController  = new(controller.SystemRoleController)
 	SystemAdminController = new(controller.SystemAdminController)
 
@@ -44,11 +44,11 @@ func RegisteRouter(echo *server.Echo) {
 	AuthApiApp := echo.Group("/api", middleware.TimeLog, middleware.AuthInit)
 	{
 		// 系统菜单管理ok
-		// AuthApiApp.POST("/system/queryMenuList", SystemMenuController.QueryMenuList)         // 查询菜单列表
-		// AuthApiApp.POST("/system/addMenu", SystemMenuController.AddMenu)                     // 添加菜单
-		// AuthApiApp.POST("/system/queryMenuOne", SystemMenuController.QueryMenuOne)           // 查询单个菜单
-		// AuthApiApp.POST("/system/queryChildrenById", SystemMenuController.QueryChildrenById) // 根据id查询子菜单
-		// AuthApiApp.POST("/system/editMenu", SystemMenuController.EidtMenu)                   // 修改菜单
+		AuthApiApp.POST("/system/queryMenuList", SystemMenuController.QueryMenuList)         // 查询菜单列表
+		AuthApiApp.POST("/system/addMenu", SystemMenuController.AddMenu)                     // 添加菜单
+		AuthApiApp.POST("/system/queryMenuOne", SystemMenuController.QueryMenuOne)           // 查询单个菜单
+		AuthApiApp.POST("/system/queryChildrenById", SystemMenuController.QueryChildrenById) // 根据id查询子菜单
+		AuthApiApp.POST("/system/editMenu", SystemMenuController.EidtMenu)                   // 修改菜单
 
 		// 角色管理ok
 		AuthApiApp.POST("/system/queryRoleList", SystemRoleController.QueryRoleList)             // 查询角色列表ok
@@ -71,7 +71,7 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/system/editPassword", SystemAdminController.EditPassword)     // 修改密码
 
 		// 登陆注销模块ok
-		// AuthApiApp.POST("/system/owner", SystemRoleController.QueryRoleMenu) // 获取菜单权限
+		AuthApiApp.POST("/system/owner", SystemRoleController.QueryRoleMenu) // 获取菜单权限
 		// AuthApiApp.POST("/system/logout", SystemAdminController.Logout)      // 注销
 
 		// 线路套餐管理ok

@@ -70,20 +70,20 @@ CREATE TABLE `red_packet_site` (
 -- ----------------------------
 DROP TABLE IF EXISTS `red_system_menu`;
 CREATE TABLE `red_system_menu` (
-  `Id` int(11) unsigned NOT NULL,
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) DEFAULT NULL,
   `name` varchar(64) NOT NULL,
   `route` varchar(64) NOT NULL,
   `icon` varchar(64) NOT NULL,
-  `level` varchar(64) NOT NULL,
-  `status` TINYINT(1) DEFAULT 2,
+  `level` TINYINT(1) DEFAULT 1,
+  `status` TINYINT(1) DEFAULT 1,
   `is_show` TINYINT(1) DEFAULT 1,
-  `sort` varchar(64) NOT NULL,
+  `sort` int(11) NOT NULL,
   `create_time` int(11) NOT NULL,
-  `delete_time` int(11) NOT NULL,
-  `update_time` int(11) NOT NULL,
+  `delete_time` int(11) DEFAULT 0,
+  `update_time` int(11) DEFAULT 0,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 -- ----------------------------
@@ -191,7 +191,6 @@ CREATE TABLE `red_system_role_menu` (
   `menu_id` int(11) DEFAULT 2,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
 
 
 

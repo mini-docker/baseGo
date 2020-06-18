@@ -1,0 +1,26 @@
+
+INSERT INTO `red_system_menu`(`Id`, `parent_id`, `name`, `route`, `icon`, `level`, `status`, `is_show`, `sort`, `create_time`, `delete_time`, `update_time`) VALUES (6, 0, "红包游戏管理", "#", "el-icon-lx-vipcard", 1, 1, 1, 6, 1592480766, 0, 0);
+INSERT INTO `red_system_menu`(`Id`, `parent_id`, `name`, `route`, `icon`, `level`, `status`, `is_show`, `sort`, `create_time`, `delete_time`, `update_time`) VALUES (7, 0, "资讯管理", "#", "el-icon-lx-friend", 1, 1, 1, 7, 1592480766, 0, 0);
+INSERT INTO `red_system_menu`(`Id`, `parent_id`, `name`, `route`, `icon`, `level`, `status`, `is_show`, `sort`, `create_time`, `delete_time`, `update_time`) VALUES (24, 0, "统计分析", "#", "el-icon-lx-rank", 1, 1, 1, 8, 1592480766, 0, 0);
+INSERT INTO `red_system_menu`(`Id`, `parent_id`, `name`, `route`, `icon`, `level`, `status`, `is_show`, `sort`, `create_time`, `delete_time`, `update_time`) VALUES (26, 0, "系统管理", "#", "el-icon-lx-cascades", 1, 1, 1, 9, 1592480766, 0, 0);
+
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 22, 2, 2, "二级代理", 2, "agencyMant", 1, 2,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`,`Id`,`is_show`,`level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES( "", 13, 1, 2, "代理管理", 2, "agencyMant", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 11, 1, 2, "会员管理", 2, "memMant", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 10, 1, 2, "系统账号管理", 3, "sysAct", 3, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 9, 1, 2, "功能菜单", 3, "funcMenu", 2, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 8, 1, 2, "角色管理", 3, "role", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 16, 1, 2, "线路提成", 4, "lineComm", 3, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 15, 1, 2, "线路列表", 4, "lineList", 2, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 14, 1, 2, "套餐管理", 4, "packageMant", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 17, 1, 2, "游戏群列表", 5, "gameGroupList", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 30, 1, 2, "机器人管理", 6, "gamerobotMant", 4, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 28, 1, 2, "红包管理", 6, "normalRed", 3, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 19, 1, 2, "注单管理", 6, "redEnvNote", 2, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 18, 1, 2, "游戏管理", 6, "gameMant", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 21, 1, 2, "公告管理", 7, "announceMant", 2, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 20, 1, 2, "活动图片管理", 7, "eventPicMant", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 32, 1, 2, "盈利分析", 24, "chartline", 1, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 36, 1, 2, "操作日志", 26, "log", 2, 1,1592480766,0,0);
+INSERT INTO `red_system_menu`(`icon`, `Id`, `is_show`, `level`, `name`, `parent_id`, `route`, `sort`, `status`, `create_time`, `delete_time`, `update_time`) VALUES ( "", 34, 1, 2, "系统配置", 26, "sysConf", 1, 1,1592480766,0,0);
+

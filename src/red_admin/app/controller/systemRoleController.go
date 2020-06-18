@@ -165,14 +165,14 @@ func (m SystemRoleController) QueryRoleMenu(ctx server.Context) error {
 	if err != nil {
 		return common.HttpResultJsonError(ctx, &validate.Err{Code: code.LOGIN_INFO_GET_FAIL})
 	}
-	// if user.IsAdmin == 1 {
-	// 	// 超级管理员，获取全部菜单
-	// 	menus, err := SystemMenuService.QuerySystemMenuList()
-	// 	if err != nil {
-	// 		return common.HttpResultJsonError(ctx, err)
-	// 	}
-	// 	return common.HttpResultJson(ctx, menus)
-	// }
+	if user.IsAdmin == 1 {
+		// 超级管理员，获取全部菜单
+		menus, err := SystemMenuService.QuerySystemMenuList()
+		if err != nil {
+			return common.HttpResultJsonError(ctx, err)
+		}
+		return common.HttpResultJson(ctx, menus)
+	}
 	// 获取用户菜单
 	menus, err := SystemRoleService.QueryRoleMenu(user.User.RoleId)
 	if err != nil {
