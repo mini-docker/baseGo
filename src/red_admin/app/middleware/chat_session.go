@@ -37,7 +37,7 @@ func (ss *SessionService) GetSession(sessionIdFull string) (*model.AdminSession,
 	defer redisClient.Close()
 	// 获取session数据
 	result, err := redisClient.Do("GET", sessionIdFull)
-	fmt.Println(sessionIdFull, "sessionIdFull")
+	// fmt.Println(sessionIdFull, "sessionIdFull")
 	// if err == redis.Nil {
 	// 	return nil, err
 	// } else
@@ -45,7 +45,7 @@ func (ss *SessionService) GetSession(sessionIdFull string) (*model.AdminSession,
 		golog.Error("SessionService", "GetSession", "err:", err)
 		return nil, err
 	}
-	fmt.Println(result, "result")
+	// fmt.Println(result, "result")
 	fResult := string(result.([]byte))
 	fmt.Println(fResult, "fResult")
 	if fResult == "" {
@@ -89,25 +89,25 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 		golog.Error("SessionService", "SaveSession", "err:%v", err)
 		return err
 	}
-	fmt.Println(sessionBs, "sessionBs") //对象
+	// fmt.Println(sessionBs, "sessionBs") //对象
 	// 存入redis,sessionKey不过期
 	// setTime = -1
 	fmt.Println(setTime, "setTime")
 	redisClient := conf.GetRedis().Get()
 	defer redisClient.Close()
 	// 设置 SessionId 为 对象转为的字符串
-	fmt.Println(string(sessionBs), "stringBs")
-	fmt.Println(listKey, "listKey")
+	// fmt.Println(string(sessionBs), "stringBs")
+	// fmt.Println(listKey, "listKey")
 	// redisClient.Do("Set", session.SessionId, string(sessionBs), setTime)
 
 	redisClient.Do("Set", session.SessionId, string(sessionBs))
 	redisClient.Do("expire", session.SessionId, setTime)
 
-	resultf, err := redisClient.Do("Get", session.SessionId)
+	// resultf, err := redisClient.Do("Get", session.SessionId)
 	if err != nil {
 		fmt.Println(err, "err")
 	}
-	fmt.Println(resultf, "resultf")
+	// fmt.Println(resultf, "resultf")
 	// 将sessionIdFull存入redis list
 	se := new(SessionCache)
 	// 根据 listkey 和 session.User.Id 获取 对应结果
@@ -117,12 +117,12 @@ func (ss *SessionService) SaveSession(listKey string, session *model.AdminSessio
 		golog.Error("ChatSessionService", "SaveSession", "err:", err)
 		return err
 	}
-	fmt.Println(sestr, "sestr233333")
+	// fmt.Println(sestr, "sestr233333")
 	// fmt.Println(sestr.(map[string]string), "bytesss")
 	if sestr != nil {
 
 		fResults := string(sestr.([]byte))
-		fmt.Println(fResults, "fResults")
+		// fmt.Println(fResults, "fResults")
 
 		var dat SessionCache
 		if err := json.Unmarshal([]byte(fResults), &dat); err == nil {

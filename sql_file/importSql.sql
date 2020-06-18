@@ -161,3 +161,44 @@ CREATE TABLE `red_system_line_meal` (
 
 
 
+
+
+
+
+-- ----------------------------
+-- Table structure for cate
+-- ----------------------------
+DROP TABLE IF EXISTS `red_system_role`;
+CREATE TABLE `red_system_role` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(64) NOT NULL,
+  `is_default` TINYINT(1) DEFAULT 2,
+  `status` TINYINT(1) DEFAULT 1,
+  `remark` varchar(255) NOT NULL,
+  `edit_time` int(11) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `delete_time` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for cate
+-- ----------------------------
+DROP TABLE IF EXISTS `red_system_role_menu`;
+CREATE TABLE `red_system_role_menu` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) NOT NULL,
+  `menu_id` int(11) DEFAULT 2,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+
+
+
+

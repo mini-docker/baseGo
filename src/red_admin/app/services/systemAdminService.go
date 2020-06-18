@@ -18,8 +18,8 @@ import (
 type SystemAdminService struct{}
 
 var (
-	SystemAdminBo        = new(bo.SystemAdminBo)
-	SystemRoleBo         = new(bo.SystemRoleBo)
+	SystemAdminBo = new(bo.SystemAdminBo)
+	// SystemRoleBo         = new(bo.SystemRoleBo)
 	SessionService       = new(middleware.SessionService)
 	AgencySessionService = new(middleware.AdminSessionService)
 )

@@ -11,7 +11,7 @@ import (
 
 var (
 	// SystemMenuController          = new(controller.SystemMenuController)
-	// SystemRoleController          = new(controller.SystemRoleController)
+	SystemRoleController  = new(controller.SystemRoleController)
 	SystemAdminController = new(controller.SystemAdminController)
 
 	SystemLineMealController = new(controller.SystemLineMealController)
@@ -51,15 +51,15 @@ func RegisteRouter(echo *server.Echo) {
 		// AuthApiApp.POST("/system/editMenu", SystemMenuController.EidtMenu)                   // 修改菜单
 
 		// 角色管理ok
-		// AuthApiApp.POST("/system/queryRoleList", SystemRoleController.QueryRoleList)             // 查询角色列表ok
-		// AuthApiApp.POST("/system/addRole", SystemRoleController.AddRole)                         // 添加角色
-		// AuthApiApp.POST("/system/queryRoleOne", SystemRoleController.QueryRoleOne)               // 查询单个角色
-		// AuthApiApp.POST("/system/editRole", SystemRoleController.EidtRole)                       // 修改角色
-		// AuthApiApp.POST("/system/editRoleStatus", SystemRoleController.EidtRoleStatus)           // 修改角色状态
-		// AuthApiApp.POST("/system/queryRolePermission", SystemRoleController.QueryRolePermission) // 获取角色权限
-		// AuthApiApp.POST("/system/setRolePermission", SystemRoleController.SetRolePermission)     // 角色赋权
-		// AuthApiApp.POST("/system/delRole", SystemRoleController.DelRole)                         // 删除角色
-		// AuthApiApp.POST("/system/queryRoleCode", SystemRoleController.QuerySystemRoleCode)       // 角色枚举
+		AuthApiApp.POST("/system/queryRoleList", SystemRoleController.QueryRoleList)             // 查询角色列表ok
+		AuthApiApp.POST("/system/addRole", SystemRoleController.AddRole)                         // 添加角色
+		AuthApiApp.POST("/system/queryRoleOne", SystemRoleController.QueryRoleOne)               // 查询单个角色
+		AuthApiApp.POST("/system/editRole", SystemRoleController.EidtRole)                       // 修改角色
+		AuthApiApp.POST("/system/editRoleStatus", SystemRoleController.EidtRoleStatus)           // 修改角色状态
+		AuthApiApp.POST("/system/queryRolePermission", SystemRoleController.QueryRolePermission) // 获取角色权限
+		AuthApiApp.POST("/system/setRolePermission", SystemRoleController.SetRolePermission)     // 角色赋权
+		AuthApiApp.POST("/system/delRole", SystemRoleController.DelRole)                         // 删除角色
+		AuthApiApp.POST("/system/queryRoleCode", SystemRoleController.QuerySystemRoleCode)       // 角色枚举
 
 		// 系统账号管理ok
 		AuthApiApp.POST("/system/queryAdminList", SystemAdminController.QueryAdminList) // 查询系统管理员列表ok
