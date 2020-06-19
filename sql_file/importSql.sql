@@ -248,7 +248,7 @@ CREATE TABLE `red_system_game` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-
+-- // 线路 站点Id 群名称 三级联动 start --
 
 -- -- ----------------------------
 -- -- Table structure for cate
@@ -324,9 +324,6 @@ CREATE TABLE `red_order_record` (
 
 
 
-
-
-
 -- -- ----------------------------
 -- -- Table structure for cate
 -- -- ----------------------------
@@ -359,12 +356,43 @@ CREATE TABLE `red_packet` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+-- // 线路 站点Id 群名称 三级联动 end --
 
 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_post`;
+CREATE TABLE `red_post` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `title` varchar(64) NOT NULL,
+  `start_time` int(11) NOT NULL,
+  `end_time` int(11) NOT NULL,
+  `sort` int(11) NOT NULL,
+  `status` TINYINT(1) DEFAULT 1,
+  `delete_time` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-
-
-
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_active_picture`;
+CREATE TABLE `red_active_picture` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `active_name` varchar(64) NOT NULL,
+  `picture` varchar(64) NOT NULL,
+  `start_time` int(11) NOT NULL,
+  `end_time` int(11) NOT NULL,
+  `sort` int(11) NOT NULL,
+  `status` TINYINT(1) DEFAULT 1,
+  `delete_time` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 

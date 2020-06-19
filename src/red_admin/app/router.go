@@ -24,8 +24,10 @@ var (
 	RedOrderRecordController    = new(controller.RedOrderRecordController)
 	SystemLineRoyaltyController = new(controller.SystemLineRoyaltyController)
 
-// SystemPostController          = new(controller.SystemPostController)
-// SystemActivePictureController = new(controller.SystemActivePictureController)
+	SystemPostController = new(controller.SystemPostController)
+
+	SystemActivePictureController = new(controller.SystemActivePictureController)
+
 // OrderStatistical              = new(controller.OrderStatistical)
 )
 
@@ -127,14 +129,14 @@ func RegisteRouter(echo *server.Echo) {
 		// AuthApiApp.POST("/system/queryLineAgencyRoyalty", SystemLineRoyaltyController.QueryLineAgencyRoyaltyList) // 代理提成
 
 		// 公告管理
-		// AuthApiApp.POST("/system/queryPostList", SystemPostController.GetAgencyPostList) // 公告列表
-		// AuthApiApp.POST("/system/queryPostById", SystemPostController.QueryPostById)     // 根据id查询公告
-		// AuthApiApp.POST("/system/editPostStatus", SystemPostController.EditPostStatus)   // 修改公告状态
+		AuthApiApp.POST("/system/queryPostList", SystemPostController.GetAgencyPostList) // 公告列表
+		AuthApiApp.POST("/system/queryPostById", SystemPostController.QueryPostById)     // 根据id查询公告
+		AuthApiApp.POST("/system/editPostStatus", SystemPostController.EditPostStatus)   // 修改公告状态
 
 		// 活动/广告管理
-		// AuthApiApp.POST("/system/queryActiveList", SystemActivePictureController.GetAgencyActiveList) // 活动列表
-		// AuthApiApp.POST("/system/queryActiveById", SystemActivePictureController.QueryActiveById)     // 根据id查询活动
-		// AuthApiApp.POST("/system/editActiveStatus", SystemActivePictureController.EditActiveStatus)   // 修改活动状态
+		AuthApiApp.POST("/system/queryActiveList", SystemActivePictureController.GetAgencyActiveList) // 活动列表
+		AuthApiApp.POST("/system/queryActiveById", SystemActivePictureController.QueryActiveById)     // 根据id查询活动
+		AuthApiApp.POST("/system/editActiveStatus", SystemActivePictureController.EditActiveStatus)   // 修改活动状态
 
 		// 统计
 		// AuthApiApp.POST("/system/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析
