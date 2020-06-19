@@ -235,12 +235,129 @@ CREATE TABLE `red_user` (
 
 
 
+-- ----------------------------
+-- Table structure for cate
+-- ----------------------------
+DROP TABLE IF EXISTS `red_system_game`;
+CREATE TABLE `red_system_game` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `game_name` VARCHAR(64) NOT NULL,
+  `game_type` int(11) NOT NULL,
+  `status` TINYINT(1) DEFAULT 1,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_room`;
+CREATE TABLE `red_room` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `room_name` varchar(64) NOT NULL,
+  `game_type` int(11) NOT NULL,
+  `max_money` FLOAT(10,2) NOT NULL,
+  `min_money` FLOAT(10,2) NOT NULL,
+  `game_play` int(11) NOT NULL,
+  `odds` FLOAT(10,2) NOT NULL,
+  `red_num` int(11) NOT NULL,
+  `red_min_num` int(11) NOT NULL,
+  `royalty` FLOAT(10,2) NOT NULL,
+  `royalty_money` FLOAT(10,2) NOT NULL,
+  `game_time` int(11) NOT NULL,
+  `room_sort` int(11) NOT NULL,
+  `status` TINYINT(1) DEFAULT 1,
+  `create_time` int(11) NOT NULL,
+  `delete_time` int(11) NOT NULL,
+  `room_type` int(11) NOT NULL,
+  `free_from_death` TINYINT(1) DEFAULT 2,
+  `robot_send_packet` TINYINT(1) DEFAULT 2,
+  `robot_send_packet_time` int(11) NOT NULL,
+  `robot_grab_packet` TINYINT(1) DEFAULT 2,
+  `room_no` int(11) NOT NULL,
+  `robot_id` int(11) NOT NULL,
+  `control_kill` TINYINT(1) DEFAULT 1,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_order_record`;
+CREATE TABLE `red_order_record` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `account` varchar(64) NOT NULL,
+  `red_sender` varchar(64) NOT NULL,
+  `game_type` int(11) NOT NULL,
+  `game_play` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `room_name` varchar(64) NOT NULL,
+  `order_no` varchar(64) NOT NULL,
+  `red_id` int(11) NOT NULL,
+  `red_money` FLOAT(10,2) NOT NULL,
+  `red_num` int(11) NOT NULL,
+  `receive_money` FLOAT(10,2) NOT NULL,
+  `royalty` FLOAT(10,2) NOT NULL,
+  `royalty_money` FLOAT(10,2) NOT NULL,
+  `money` FLOAT(10,2) NOT NULL,
+  `real_money` FLOAT(10,2) NOT NULL,
+  `game_time` int(11) NOT NULL,
+  `receive_time` int(11) NOT NULL,
+  `red_start_time` int(11) NOT NULL,
+  `status` TINYINT(1) NOT NULL,
+  `extra` varchar(255) NOT NULL,
+  `is_robot` TINYINT(1) DEFAULT 2,
+  `is_free_death` TINYINT(1) DEFAULT 2,
+  `robot_win` FLOAT(10,2) NOT NULL,
+  `valid_bet` FLOAT(10,2) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 
 
 
 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_packet`;
+CREATE TABLE `red_packet` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `red_envelope_amount` FLOAT(10,2) NOT NULL,
+  `red_envelopes_num` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `account` varchar(64) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `delete_time` int(11) NOT NULL,
+  `red_type` int(11) NOT NULL,
+  `red_play` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `room_name` varchar(64) NOT NULL,
+  `status` TINYINT(1) NOT NULL,
+  `mine` int(11) NOT NULL,
+  `capital` FLOAT(10,2) NOT NULL,
+  `money` FLOAT(10,2) NOT NULL,
+  `real_money` FLOAT(10,2) NOT NULL,
+  `royalty_money` FLOAT(10,2) NOT NULL,
+  `return_money` FLOAT(10,2) NOT NULL,
+  `is_auto` TINYINT(1) NOT NULL,
+  `auto_time` int(11) NOT NULL,
+  `end_time` int(11) NOT NULL,
+  `is_robot` TINYINT(1) DEFAULT 2,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 

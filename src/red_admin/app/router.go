@@ -18,10 +18,10 @@ var (
 	SystemLineController     = new(controller.SystemLineController)
 	SystemAgencyController   = new(controller.SystemAgencyController)
 
-	// SystemGameController          = new(controller.SystemGameController)
-	// SystemRoomController          = new(controller.SystemRoomController)
-	SystemUserController = new(controller.SystemUserController)
-	// RedOrderRecordController      = new(controller.RedOrderRecordController)
+	SystemGameController        = new(controller.SystemGameController)
+	SystemRoomController        = new(controller.SystemRoomController)
+	SystemUserController        = new(controller.SystemUserController)
+	RedOrderRecordController    = new(controller.RedOrderRecordController)
 	SystemLineRoyaltyController = new(controller.SystemLineRoyaltyController)
 
 // SystemPostController          = new(controller.SystemPostController)
@@ -73,7 +73,7 @@ func RegisteRouter(echo *server.Echo) {
 
 		// 登陆注销模块ok
 		AuthApiApp.POST("/system/owner", SystemRoleController.QueryRoleMenu) // 获取菜单权限
-		// AuthApiApp.POST("/system/logout", SystemAdminController.Logout)      // 注销
+		AuthApiApp.POST("/system/logout", SystemAdminController.Logout)      // 注销
 
 		// 线路套餐管理ok
 		AuthApiApp.POST("/system/queryLineMealList", SystemLineMealController.QueryLineMealList)    // 查询线路套餐列表ok
@@ -107,20 +107,20 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/system/editUsersStatus", SystemUserController.EditUsersStatus) // 批量启用/停用会员
 
 		// 游戏管理ok
-		// AuthApiApp.POST("/system/queryGameList", SystemGameController.QueryGameList)   // 查询游戏列表ok
-		// AuthApiApp.POST("/system/addGame", SystemGameController.AddGame)               // 添加游戏
-		// AuthApiApp.POST("/system/queryGameOne", SystemGameController.QueryGameOne)     // 查询单个游戏
-		// AuthApiApp.POST("/system/editGame", SystemGameController.EditGame)             // 修改游戏
-		// AuthApiApp.POST("/system/editGameStatus", SystemGameController.EditGameStatus) // 修改游戏状态
+		AuthApiApp.POST("/system/queryGameList", SystemGameController.QueryGameList)   // 查询游戏列表ok
+		AuthApiApp.POST("/system/addGame", SystemGameController.AddGame)               // 添加游戏
+		AuthApiApp.POST("/system/queryGameOne", SystemGameController.QueryGameOne)     // 查询单个游戏
+		AuthApiApp.POST("/system/editGame", SystemGameController.EditGame)             // 修改游戏
+		AuthApiApp.POST("/system/editGameStatus", SystemGameController.EditGameStatus) // 修改游戏状态
 
 		// 游戏群管理
-		// AuthApiApp.POST("/system/queryRoomList", SystemRoomController.QueryRoomList)   // 查询群列表ok
-		// AuthApiApp.POST("/system/editRoomStatus", SystemRoomController.EditRoomStatus) // 修改群状态
-		// AuthApiApp.POST("/system/roomCode", SystemRoomController.RoomCode)             // 群枚举
+		AuthApiApp.POST("/system/queryRoomList", SystemRoomController.QueryRoomList)   // 查询群列表ok
+		AuthApiApp.POST("/system/editRoomStatus", SystemRoomController.EditRoomStatus) // 修改群状态
+		AuthApiApp.POST("/system/roomCode", SystemRoomController.RoomCode)             // 群枚举
 
 		// 注单管理
-		// AuthApiApp.POST("/system/queryRedOrderRecordList", RedOrderRecordController.QueryRedRecordList) // 注单列表 ok
-		// AuthApiApp.POST("/system/redInfo", RedOrderRecordController.GetRedInfo)                         // 红包详情
+		AuthApiApp.POST("/system/queryRedOrderRecordList", RedOrderRecordController.QueryRedRecordList) // 注单列表 ok
+		AuthApiApp.POST("/system/redInfo", RedOrderRecordController.GetRedInfo)                         // 红包详情
 
 		// 线路提成
 		AuthApiApp.POST("/system/queryLineRoyalty", SystemLineRoyaltyController.QueryLineRoyaltyList) // 线路提成
