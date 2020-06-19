@@ -10,25 +10,20 @@ import (
 )
 
 var (
-	SystemMenuController  = new(controller.SystemMenuController)
-	SystemRoleController  = new(controller.SystemRoleController)
-	SystemAdminController = new(controller.SystemAdminController)
-
-	SystemLineMealController = new(controller.SystemLineMealController)
-	SystemLineController     = new(controller.SystemLineController)
-	SystemAgencyController   = new(controller.SystemAgencyController)
-
-	SystemGameController        = new(controller.SystemGameController)
-	SystemRoomController        = new(controller.SystemRoomController)
-	SystemUserController        = new(controller.SystemUserController)
-	RedOrderRecordController    = new(controller.RedOrderRecordController)
-	SystemLineRoyaltyController = new(controller.SystemLineRoyaltyController)
-
-	SystemPostController = new(controller.SystemPostController)
-
+	SystemMenuController          = new(controller.SystemMenuController)
+	SystemRoleController          = new(controller.SystemRoleController)
+	SystemAdminController         = new(controller.SystemAdminController)
+	SystemLineMealController      = new(controller.SystemLineMealController)
+	SystemLineController          = new(controller.SystemLineController)
+	SystemAgencyController        = new(controller.SystemAgencyController)
+	SystemGameController          = new(controller.SystemGameController)
+	SystemRoomController          = new(controller.SystemRoomController)
+	SystemUserController          = new(controller.SystemUserController)
+	RedOrderRecordController      = new(controller.RedOrderRecordController)
+	SystemLineRoyaltyController   = new(controller.SystemLineRoyaltyController)
+	SystemPostController          = new(controller.SystemPostController)
 	SystemActivePictureController = new(controller.SystemActivePictureController)
-
-// OrderStatistical              = new(controller.OrderStatistical)
+	OrderStatistical              = new(controller.OrderStatistical)
 )
 
 func RegisteRouter(echo *server.Echo) {
@@ -139,6 +134,6 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/system/editActiveStatus", SystemActivePictureController.EditActiveStatus)   // 修改活动状态
 
 		// 统计
-		// AuthApiApp.POST("/system/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析
+		AuthApiApp.POST("/system/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析
 	}
 }

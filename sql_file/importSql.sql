@@ -395,6 +395,28 @@ CREATE TABLE `red_active_picture` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_order_statistical`;
+CREATE TABLE `red_order_statistical` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+
+  `statistical_date` varchar(255) NOT NULL,
+  `valid_bet` FLOAT(10,2) NOT NULL,
+  `red_num` int(11) NOT NULL,
+  `order_num` int(11) NOT NULL,
+  `royalty_money` FLOAT(10,2) NOT NULL,
+  `free_death_win` FLOAT(10,2) NOT NULL,
+  `robot_win` FLOAT(10,2) NOT NULL,
+  `total_win` FLOAT(10,2) NOT NULL,
+  `game_type` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
 
 
 
