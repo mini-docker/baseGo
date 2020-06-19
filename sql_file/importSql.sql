@@ -75,7 +75,7 @@ CREATE TABLE `red_system_menu` (
   `name` varchar(64) NOT NULL,
   `route` varchar(64) NOT NULL,
   `icon` varchar(64) NOT NULL,
-  `level` TINYINT(1) DEFAULT 1,
+  `level` TINYINT(1) DEFAULT 0,
   `status` TINYINT(1) DEFAULT 1,
   `is_show` TINYINT(1) DEFAULT 1,
   `sort` int(11) NOT NULL,
@@ -191,6 +191,66 @@ CREATE TABLE `red_system_role_menu` (
   `menu_id` int(11) DEFAULT 2,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+-- 线路提成 根据 统计数据 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+-- DROP TABLE IF EXISTS `red_order_record`;
+-- CREATE TABLE `red_order_record` (
+--   `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+--   `line_id` varchar(64) NOT NULL,
+--   `nn_royalty` FLOAT(10,2) NOT NULL,
+--   `sl_royalty` FLOAT(10,2) NOT NULL,
+--   PRIMARY KEY (`Id`)
+-- ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_user`;
+CREATE TABLE `red_user` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `account` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `is_online` TINYINT(1) DEFAULT 2,
+  `balance` FLOAT(10,2) NOT NULL,
+  `ip` varchar(64) NOT NULL,
+  `status` TINYINT(1) DEFAULT 1,
+  `create_time` int(11) NOT NULL,
+  `delete_time` int(11) NOT NULL,
+  `edit_time` int(11) NOT NULL,
+  `capital` FLOAT(10,2) NOT NULL,
+  `last_login_ip` varchar(255) NOT NULL,
+  `last_login_time` int(11) NOT NULL,
+  `is_robot` TINYINT(1) DEFAULT 2,
+  `is_group_owner` TINYINT(1) DEFAULT 2,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

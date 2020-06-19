@@ -18,11 +18,12 @@ var (
 	SystemLineController     = new(controller.SystemLineController)
 	SystemAgencyController   = new(controller.SystemAgencyController)
 
-// SystemGameController          = new(controller.SystemGameController)
-// SystemRoomController          = new(controller.SystemRoomController)
-// SystemUserController          = new(controller.SystemUserController)
-// RedOrderRecordController      = new(controller.RedOrderRecordController)
-// SystemLineRoyaltyController   = new(controller.SystemLineRoyaltyController)
+	// SystemGameController          = new(controller.SystemGameController)
+	// SystemRoomController          = new(controller.SystemRoomController)
+	SystemUserController = new(controller.SystemUserController)
+	// RedOrderRecordController      = new(controller.RedOrderRecordController)
+	SystemLineRoyaltyController = new(controller.SystemLineRoyaltyController)
+
 // SystemPostController          = new(controller.SystemPostController)
 // SystemActivePictureController = new(controller.SystemActivePictureController)
 // OrderStatistical              = new(controller.OrderStatistical)
@@ -101,9 +102,9 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/system/agencyCode", SystemAgencyController.SiteCode)               // 站点枚举
 
 		// 会员管理
-		// AuthApiApp.POST("/system/queryUserList", SystemUserController.QueryUserList)     // 查询会员列表 ok
-		// AuthApiApp.POST("/system/kickUsers", SystemUserController.KickUsers)             // 批量踢线
-		// AuthApiApp.POST("/system/editUsersStatus", SystemUserController.EditUsersStatus) // 批量启用/停用会员
+		AuthApiApp.POST("/system/queryUserList", SystemUserController.QueryUserList)     // 查询会员列表 ok
+		AuthApiApp.POST("/system/kickUsers", SystemUserController.KickUsers)             // 批量踢线
+		AuthApiApp.POST("/system/editUsersStatus", SystemUserController.EditUsersStatus) // 批量启用/停用会员
 
 		// 游戏管理ok
 		// AuthApiApp.POST("/system/queryGameList", SystemGameController.QueryGameList)   // 查询游戏列表ok
@@ -122,7 +123,7 @@ func RegisteRouter(echo *server.Echo) {
 		// AuthApiApp.POST("/system/redInfo", RedOrderRecordController.GetRedInfo)                         // 红包详情
 
 		// 线路提成
-		// AuthApiApp.POST("/system/queryLineRoyalty", SystemLineRoyaltyController.QueryLineRoyaltyList)             // 线路提成
+		AuthApiApp.POST("/system/queryLineRoyalty", SystemLineRoyaltyController.QueryLineRoyaltyList) // 线路提成
 		// AuthApiApp.POST("/system/queryLineAgencyRoyalty", SystemLineRoyaltyController.QueryLineAgencyRoyaltyList) // 代理提成
 
 		// 公告管理
