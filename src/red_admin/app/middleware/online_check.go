@@ -20,8 +20,8 @@ var (
 func InitOnlineCheck() {
 	s := gocron.NewScheduler() // 创建一个定时器任务
 	// 每一分钟执行执行一次 onlineCheck
-	// s.Every(1).Minutes().Do(onlineCheck)
-	s.Every(5).Seconds().Do(onlineCheck)
+	s.Every(1).Minutes().Do(onlineCheck)
+	// s.Every(5).Seconds().Do(onlineCheck)
 	<-s.Start()
 }
 
