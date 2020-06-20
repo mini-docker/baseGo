@@ -403,7 +403,6 @@ CREATE TABLE `red_order_statistical` (
   `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `line_id` varchar(64) NOT NULL,
   `agency_id` varchar(64) NOT NULL,
-
   `statistical_date` varchar(255) NOT NULL,
   `valid_bet` FLOAT(10,2) NOT NULL,
   `red_num` int(11) NOT NULL,
@@ -417,6 +416,23 @@ CREATE TABLE `red_order_statistical` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
+
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_log`;
+CREATE TABLE `red_log` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `log_type` TINYINT(1) NOT NULL,
+  `remark` varchar(255)NOT NULL,
+  `creator` varchar(64) NOT NULL,
+  `creator_id` int(11) NOT NULL,
+  `creator_ip` varchar(255)NOT NULL,
+  `create_time` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 
