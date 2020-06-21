@@ -9,12 +9,12 @@ import (
 )
 
 var (
-	// userCtrl             = new(controllers.UserController)
+	userCtrl = new(controllers.UserController)
 	// roomCtrl             = new(controllers.RoomController)
 	// postCtl              = new(controllers.PostController)
 	// acCtl                = new(controllers.ActivePictureController)
-	loginCtrl = new(controllers.LoginController)
-	// agencyCtrl           = new(controllers.AgencyController)
+	loginCtrl  = new(controllers.LoginController)
+	agencyCtrl = new(controllers.AgencyController)
 	// RedOrderRecordCtl    = new(controllers.RedOrderRecordController)
 	// UploadFileController = new(controllers.UploadFileController)
 	// OrdinaryRedPacketCtl = new(controllers.OrdinaryRedPacketController)
@@ -57,20 +57,20 @@ func RegisteRouter(echo *server.Echo) {
 		// 	AuthApiApp.POST("/agency/addRed", roomCtrl.AddRed)                 // 发送普通红包
 		// 	AuthApiApp.POST("/agency/roomCode", roomCtrl.RoomCode)             // 群枚举
 
-		// 	// 代理管理ok
-		// 	AuthApiApp.POST("/agency/queryAgencyList", agencyCtrl.QueryAgencyList)         // 查询代理列表ok
-		// 	AuthApiApp.POST("/agency/addAgency", agencyCtrl.AddAgency)                     // 添加代理
-		// 	AuthApiApp.POST("/agency/queryAgencyOne", agencyCtrl.QueryAgencyOne)           // 查询单个代理信息
-		// 	AuthApiApp.POST("/agency/editAgency", agencyCtrl.EditAgency)                   // 修改代理信息
-		// 	AuthApiApp.POST("/agency/editAgencyStatus", agencyCtrl.EditAgencyStatus)       // 修改代理状态
-		// 	AuthApiApp.POST("/agency/resetAgencyPassword", agencyCtrl.ResetAgencyPassword) // 重置代理密码
-		// 	AuthApiApp.POST("/agency/delAgency", agencyCtrl.DelAgency)                     // 删除代理
-		// 	AuthApiApp.POST("/agency/editPassword", agencyCtrl.EditPassword)               // 修改密码
+		// 代理管理ok
+		AuthApiApp.POST("/agency/queryAgencyList", agencyCtrl.QueryAgencyList)         // 查询代理列表ok
+		AuthApiApp.POST("/agency/addAgency", agencyCtrl.AddAgency)                     // 添加代理
+		AuthApiApp.POST("/agency/queryAgencyOne", agencyCtrl.QueryAgencyOne)           // 查询单个代理信息
+		AuthApiApp.POST("/agency/editAgency", agencyCtrl.EditAgency)                   // 修改代理信息
+		AuthApiApp.POST("/agency/editAgencyStatus", agencyCtrl.EditAgencyStatus)       // 修改代理状态
+		AuthApiApp.POST("/agency/resetAgencyPassword", agencyCtrl.ResetAgencyPassword) // 重置代理密码
+		AuthApiApp.POST("/agency/delAgency", agencyCtrl.DelAgency)                     // 删除代理
+		AuthApiApp.POST("/agency/editPassword", agencyCtrl.EditPassword)               // 修改密码
 
-		// 	// 会员管理ok
-		// 	AuthApiApp.POST("/agency/queryUserList", userCtrl.QueryUserList)     // 查询会员列表 ok
-		// 	AuthApiApp.POST("/agency/kickUsers", userCtrl.KickUsers)             // 批量踢线
-		// 	AuthApiApp.POST("/agency/editUsersStatus", userCtrl.EditUsersStatus) // 批量启用/停用会员
+		// 会员管理ok
+		AuthApiApp.POST("/agency/queryUserList", userCtrl.QueryUserList)     // 查询会员列表 ok
+		AuthApiApp.POST("/agency/kickUsers", userCtrl.KickUsers)             // 批量踢线
+		AuthApiApp.POST("/agency/editUsersStatus", userCtrl.EditUsersStatus) // 批量启用/停用会员
 
 		// 	// 注单管理
 		// 	AuthApiApp.POST("/agency/queryRedOrderRecordList", RedOrderRecordCtl.QueryRedRecordList) // 注单列表 ok
