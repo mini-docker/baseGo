@@ -1,8 +1,8 @@
 package middleware
 
 import (
+	"baseGo/src/red_agency/app/server"
 	"fmt"
-	"red_agency/app/server"
 	"runtime"
 
 	"fecho/golog"

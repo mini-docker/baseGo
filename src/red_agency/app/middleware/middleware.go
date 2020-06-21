@@ -1,8 +1,6 @@
 package middleware
 
-import (
-	"red_agency/app/server"
-)
+import "baseGo/src/red_agency/app/server"
 
 type (
 	// Skipper defines a function to skip middleware. Returning true skips processing

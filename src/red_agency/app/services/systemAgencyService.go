@@ -316,6 +316,7 @@ func (SystemAgencyService) Login(account, password, ip string, device int) (*mod
 	if !strings.Contains(agency.WhiteIpAddress, ip) {
 		return nil, &validate.Err{Code: code.LOGINIP_NOT_IN_WHITE_IP_ADDRESS}
 	}
+	fmt.Println(agency.WhiteIpAddress, ip, "makeDiff")
 
 	// 验证状态
 	if agency.Status == model.MENU_TWO {

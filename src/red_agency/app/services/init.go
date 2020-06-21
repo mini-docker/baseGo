@@ -8,7 +8,7 @@ var (
 	// RedPacketBo        = new(bo.RedPacket)
 	// RedPacketLogBo     = new(bo.RedPacketLog)
 	// MemberCashRecordBo = new(bo.MemberCashRecord)
-	// AgencyBo           = new(bo.Agency)
+	AgencyBo = new(bo.Agency)
 	// PostBo             = new(bo.Post)
 	// ActivePictureBo    = new(bo.ActivePicture)
 	// ImOnlineMessageBo  = new(bo.ImOnlineMessage)

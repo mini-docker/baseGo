@@ -7,6 +7,7 @@ type RedPacketSite struct {
 	AgencyId   string `xorm:"agency_id" json:"agencyId"`     // 站点id
 	SiteName   string `xorm:"site_name" json:"siteName"`     // 站点名称
 	Status     int    `xorm:"status" json:"status"`          // 状态  1正常 2停用
+	CreateTime int    `xorm:"create_time" json:"createTime"` // 添加时间
 	DeleteTime int    `xorm:"delete_time" json:"deleteTime"` // 删除时间
 }
 
