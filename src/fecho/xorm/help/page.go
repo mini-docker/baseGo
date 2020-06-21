@@ -1,17 +1,17 @@
 package help
 
 import (
-	"fecho/utility"
-	"fecho/xorm"
+	"baseGo/src/fecho/utility"
+	"baseGo/src/fecho/xorm"
 )
 
 //分页参数
 type PageParams struct {
-	Page     int    `json:"pageIndex"`     //页码数
-	PageSize int    `json:"pageSize"` //页面数量
-	Limit    []int  `json:"-"`        //分页
-	OrderBy  string `json:"orderBy"`  //排序字段
-	Asc      bool   `json:"asc"`      //排序顺序 默认为false,也就是默认倒序
+	Page     int    `json:"pageIndex"` //页码数
+	PageSize int    `json:"pageSize"`  //页面数量
+	Limit    []int  `json:"-"`         //分页
+	OrderBy  string `json:"orderBy"`   //排序字段
+	Asc      bool   `json:"asc"`       //排序顺序 默认为false,也就是默认倒序
 }
 
 // Make 给xorm 补上分页信息

@@ -10,7 +10,7 @@ import (
 
 var (
 	userCtrl = new(controllers.UserController)
-	// roomCtrl             = new(controllers.RoomController)
+	roomCtrl = new(controllers.RoomController)
 	// postCtl              = new(controllers.PostController)
 	// acCtl                = new(controllers.ActivePictureController)
 	loginCtrl  = new(controllers.LoginController)
@@ -21,7 +21,7 @@ var (
 	// RobotCtl             = new(controllers.RobotController)
 	RedPacketSiteCtl = new(controllers.RedPacketSiteController)
 	// NewSiteCtl           = new(controllers.NewSiteController)
-	// LogCtl               = new(controllers.LogController)
+	// LogCtl = new(controllers.LogController)
 	// OrderStatistical     = new(controllers.OrderStatistical)
 )
 
@@ -47,15 +47,15 @@ func RegisteRouter(echo *server.Echo) {
 	{
 		AuthApiApp.POST("/agency/logout", loginCtrl.Logout) // 注销
 
-		// 	// 游戏群管理ok
-		// 	AuthApiApp.POST("/agency/queryRoomList", roomCtrl.QueryRoomList)   // 游戏群列表ok
-		// 	AuthApiApp.POST("/agency/addRoom", roomCtrl.AddRoom)               // 添加群
-		// 	AuthApiApp.POST("/agency/queryRoomOne", roomCtrl.QueryRoomOne)     // 查询单个群信息
-		// 	AuthApiApp.POST("/agency/editRoom", roomCtrl.EditRoom)             // 修改群信息
-		// 	AuthApiApp.POST("/agency/editRoomStatus", roomCtrl.EditRoomStatus) // 修改群状态
-		// 	AuthApiApp.POST("/agency/delRoom", roomCtrl.DelRoom)               // 删除群
-		// 	AuthApiApp.POST("/agency/addRed", roomCtrl.AddRed)                 // 发送普通红包
-		// 	AuthApiApp.POST("/agency/roomCode", roomCtrl.RoomCode)             // 群枚举
+		// 游戏群管理ok
+		AuthApiApp.POST("/agency/queryRoomList", roomCtrl.QueryRoomList)   // 游戏群列表ok
+		AuthApiApp.POST("/agency/addRoom", roomCtrl.AddRoom)               // 添加群
+		AuthApiApp.POST("/agency/queryRoomOne", roomCtrl.QueryRoomOne)     // 查询单个群信息
+		AuthApiApp.POST("/agency/editRoom", roomCtrl.EditRoom)             // 修改群信息
+		AuthApiApp.POST("/agency/editRoomStatus", roomCtrl.EditRoomStatus) // 修改群状态
+		AuthApiApp.POST("/agency/delRoom", roomCtrl.DelRoom)               // 删除群
+		AuthApiApp.POST("/agency/addRed", roomCtrl.AddRed)                 // 发送普通红包
+		AuthApiApp.POST("/agency/roomCode", roomCtrl.RoomCode)             // 群枚举
 
 		// 代理管理ok
 		AuthApiApp.POST("/agency/queryAgencyList", agencyCtrl.QueryAgencyList)         // 查询代理列表ok
@@ -114,8 +114,8 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/agency/site/delSite", RedPacketSiteCtl.DelPacketSite)                  // 删除站点
 		AuthApiApp.POST("/agency/agencyCode", RedPacketSiteCtl.SiteCode)                         // 站点枚举
 
-		// 	// 操作日志
-		// 	AuthApiApp.POST("/agency/log/list", LogCtl.QueryLogs) // 操作日志列表
+		// 操作日志
+		// AuthApiApp.POST("/agency/log/list", LogCtl.QueryLogs) // 操作日志列表
 
 		// 	// 统计
 		// 	AuthApiApp.POST("/agency/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析

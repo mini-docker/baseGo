@@ -437,9 +437,45 @@ CREATE TABLE `red_log` (
 
 
 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_message_history`;
+CREATE TABLE `red_message_history` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `msg_type` TINYINT(1) NOT NULL,
+  `msg_content` varchar(1024)NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `sender_name` varchar(64) NOT NULL,
+  `status` TINYINT(1) NOT NULL,
+  `send_time` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_member_cash_record`;
+CREATE TABLE `red_member_cash_record` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64) NOT NULL,
+  `agency_id` varchar(64) NOT NULL,
+  `order_no` varchar(64) NOT NULL,
+  `game_type` int(11) NOT NULL,
+  `game_name` varchar(64)NOT NULL,
+  `flow_type` int(11) NOT NULL,
+  `money` FLOAT(10,2) NOT NULL,
+  `remark` varchar(255) NOT NULL,
+  `create_time` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `account` varchar(64)NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 
