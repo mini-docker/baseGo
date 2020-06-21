@@ -21,7 +21,7 @@ var (
 	// RobotCtl             = new(controllers.RobotController)
 	RedPacketSiteCtl = new(controllers.RedPacketSiteController)
 	// NewSiteCtl           = new(controllers.NewSiteController)
-	// LogCtl = new(controllers.LogController)
+	LogCtl = new(controllers.LogController)
 	// OrderStatistical     = new(controllers.OrderStatistical)
 )
 
@@ -115,7 +115,7 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/agency/agencyCode", RedPacketSiteCtl.SiteCode)                         // 站点枚举
 
 		// 操作日志
-		// AuthApiApp.POST("/agency/log/list", LogCtl.QueryLogs) // 操作日志列表
+		AuthApiApp.POST("/agency/log/list", LogCtl.QueryLogs) // 操作日志列表
 
 		// 	// 统计
 		// 	AuthApiApp.POST("/agency/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析
