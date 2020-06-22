@@ -13,9 +13,9 @@ var (
 	roomCtrl = new(controllers.RoomController)
 	// postCtl              = new(controllers.PostController)
 	// acCtl                = new(controllers.ActivePictureController)
-	loginCtrl  = new(controllers.LoginController)
-	agencyCtrl = new(controllers.AgencyController)
-	// RedOrderRecordCtl    = new(controllers.RedOrderRecordController)
+	loginCtrl         = new(controllers.LoginController)
+	agencyCtrl        = new(controllers.AgencyController)
+	RedOrderRecordCtl = new(controllers.RedOrderRecordController)
 	// UploadFileController = new(controllers.UploadFileController)
 	// OrdinaryRedPacketCtl = new(controllers.OrdinaryRedPacketController)
 	// RobotCtl             = new(controllers.RobotController)
@@ -72,9 +72,9 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/agency/kickUsers", userCtrl.KickUsers)             // 批量踢线
 		AuthApiApp.POST("/agency/editUsersStatus", userCtrl.EditUsersStatus) // 批量启用/停用会员
 
-		// 	// 注单管理
-		// 	AuthApiApp.POST("/agency/queryRedOrderRecordList", RedOrderRecordCtl.QueryRedRecordList) // 注单列表 ok
-		// 	AuthApiApp.POST("/agency/redInfo", RedOrderRecordCtl.GetRedInfo)                         // 红包详情
+		// 注单管理
+		AuthApiApp.POST("/agency/queryRedOrderRecordList", RedOrderRecordCtl.QueryRedRecordList) // 注单列表 ok
+		AuthApiApp.POST("/agency/redInfo", RedOrderRecordCtl.GetRedInfo)                         // 红包详情
 
 		// 	// 公告管理
 		// 	AuthApiApp.POST("/agency/queryPostList", postCtl.GetAgencyPostList) // 公告列表
@@ -106,7 +106,7 @@ func RegisteRouter(echo *server.Echo) {
 		// 	AuthApiApp.POST("/agency/robot/insertRobots", RobotCtl.InsertRobots)           // 批量生成机器人
 		// 	AuthApiApp.POST("/agency/robot/delRobots", RobotCtl.DelRobots)                 // 批量删除机器人
 
-		// 	// 站点管理
+		// 站点管理
 		AuthApiApp.POST("/agency/site/list", RedPacketSiteCtl.QueryPacketSiteList)               // 站点列表
 		AuthApiApp.POST("/agency/site/addSite", RedPacketSiteCtl.AddPacketSite)                  // 添加站点
 		AuthApiApp.POST("/agency/site/editSite", RedPacketSiteCtl.EditPacketSite)                // 修改站点
