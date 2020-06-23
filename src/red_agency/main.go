@@ -5,6 +5,7 @@ import (
 	"baseGo/src/fecho/golog"
 	"baseGo/src/fecho/modules"
 	"baseGo/src/fecho/utility"
+	"baseGo/src/red_agency/app/middleware"
 	"baseGo/src/red_agency/conf"
 	"baseGo/src/red_agency/webserver"
 	"errors"
@@ -77,10 +78,10 @@ func startServer(c *cli.Context) error {
 	// go registry.Start()
 
 	// 在线状态检测
-	// go middleware.InitOnlineCheck()
+	go middleware.InitOnlineCheck()
 
 	// 注单盈利分析
-	// go middleware.InitOrderStatistical()
+	go middleware.InitOrderStatistical()
 
 	signalCh := make(chan os.Signal)
 	signal.Notify(
