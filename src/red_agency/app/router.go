@@ -20,9 +20,9 @@ var (
 	OrdinaryRedPacketCtl = new(controllers.OrdinaryRedPacketController)
 	RobotCtl             = new(controllers.RobotController)
 	RedPacketSiteCtl     = new(controllers.RedPacketSiteController)
-	// NewSiteCtl           = new(controllers.NewSiteController)
-	LogCtl = new(controllers.LogController)
-	// OrderStatistical     = new(controllers.OrderStatistical)
+	NewSiteCtl           = new(controllers.NewSiteController)
+	LogCtl               = new(controllers.LogController)
+	OrderStatistical     = new(controllers.OrderStatistical)
 )
 
 func RegisteRouter(echo *server.Echo) {
@@ -30,18 +30,18 @@ func RegisteRouter(echo *server.Echo) {
 	echo.GET("/version", func(ctx server.Context) error {
 		return ctx.JSON(200, map[string]interface{}{"version": conf.Version, "time": time.Now().UnixNano()})
 	})
-	// echo.Any("/*", UploadFileController.DownLoadFile) // 文件下载
+	echo.Any("/*", UploadFileController.DownLoadFile) // 文件下载
 	// pc api路由 非验证
 	noAuthApiPc := echo.Group("/api", middleware.TimeLog, middleware.NotAuthInit)
 	{
 		noAuthApiPc.POST("/agency/login", loginCtrl.Login)
 		noAuthApiPc.POST("/agency/orders", OrdinaryRedPacketCtl.Orders)
-		// // 数据初始化
-		// noAuthApiPc.POST("/agency/newSite", NewSiteCtl.NewSite)
-		// // 机器人初始化
-		// noAuthApiPc.POST("/agency/newRobot", NewSiteCtl.NewRobot)
-		// // 统计数据初始化
-		// noAuthApiPc.POST("/agency/initStatistical",NewSiteCtl.InitStatistical)
+		// 数据初始化
+		noAuthApiPc.POST("/agency/newSite", NewSiteCtl.NewSite)
+		// 机器人初始化
+		noAuthApiPc.POST("/agency/newRobot", NewSiteCtl.NewRobot)
+		// 统计数据初始化
+		noAuthApiPc.POST("/agency/initStatistical", NewSiteCtl.InitStatistical)
 	}
 	AuthApiApp := echo.Group("/api", middleware.TimeLog, middleware.AgencyAuthInit)
 	{
@@ -117,7 +117,7 @@ func RegisteRouter(echo *server.Echo) {
 		// 操作日志
 		AuthApiApp.POST("/agency/log/list", LogCtl.QueryLogs) // 操作日志列表
 
-		// 	// 统计
-		// 	AuthApiApp.POST("/agency/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析
+		// 统计
+		AuthApiApp.POST("/agency/orderStatistical", OrderStatistical.QueryOrderStatistical) // 盈利分析
 	}
 }
