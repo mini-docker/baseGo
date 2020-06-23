@@ -11,7 +11,7 @@ import (
 var (
 	userCtrl = new(controllers.UserController)
 	roomCtrl = new(controllers.RoomController)
-	// postCtl              = new(controllers.PostController)
+	postCtl  = new(controllers.PostController)
 	// acCtl                = new(controllers.ActivePictureController)
 	loginCtrl         = new(controllers.LoginController)
 	agencyCtrl        = new(controllers.AgencyController)
@@ -76,13 +76,13 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/agency/queryRedOrderRecordList", RedOrderRecordCtl.QueryRedRecordList) // 注单列表 ok
 		AuthApiApp.POST("/agency/redInfo", RedOrderRecordCtl.GetRedInfo)                         // 红包详情
 
-		// 	// 公告管理
-		// 	AuthApiApp.POST("/agency/queryPostList", postCtl.GetAgencyPostList) // 公告列表
-		// 	AuthApiApp.POST("/agency/addPost", postCtl.AddPost)                 // 添加公告
-		// 	AuthApiApp.POST("/agency/queryPostById", postCtl.QueryPostById)     // 根据id查询公告
-		// 	AuthApiApp.POST("/agency/editPost", postCtl.EditPost)               // 修改公告
-		// 	AuthApiApp.POST("/agency/editPostStatus", postCtl.EditPostStatus)   // 修改公告状态
-		// 	AuthApiApp.POST("/agency/delPost", postCtl.DelPost)                 // 删除公告
+		// 公告管理
+		AuthApiApp.POST("/agency/queryPostList", postCtl.GetAgencyPostList) // 公告列表
+		AuthApiApp.POST("/agency/addPost", postCtl.AddPost)                 // 添加公告
+		AuthApiApp.POST("/agency/queryPostById", postCtl.QueryPostById)     // 根据id查询公告
+		AuthApiApp.POST("/agency/editPost", postCtl.EditPost)               // 修改公告
+		AuthApiApp.POST("/agency/editPostStatus", postCtl.EditPostStatus)   // 修改公告状态
+		AuthApiApp.POST("/agency/delPost", postCtl.DelPost)                 // 删除公告
 
 		// 	// 活动/广告管理
 		// 	AuthApiApp.POST("/agency/queryActiveList", acCtl.GetAgencyActiveList) // 活动列表
