@@ -17,9 +17,9 @@ var (
 	agencyCtrl           = new(controllers.AgencyController)
 	RedOrderRecordCtl    = new(controllers.RedOrderRecordController)
 	UploadFileController = new(controllers.UploadFileController)
-	// OrdinaryRedPacketCtl = new(controllers.OrdinaryRedPacketController)
-	// RobotCtl             = new(controllers.RobotController)
-	RedPacketSiteCtl = new(controllers.RedPacketSiteController)
+	OrdinaryRedPacketCtl = new(controllers.OrdinaryRedPacketController)
+	RobotCtl             = new(controllers.RobotController)
+	RedPacketSiteCtl     = new(controllers.RedPacketSiteController)
 	// NewSiteCtl           = new(controllers.NewSiteController)
 	LogCtl = new(controllers.LogController)
 	// OrderStatistical     = new(controllers.OrderStatistical)
@@ -35,7 +35,7 @@ func RegisteRouter(echo *server.Echo) {
 	noAuthApiPc := echo.Group("/api", middleware.TimeLog, middleware.NotAuthInit)
 	{
 		noAuthApiPc.POST("/agency/login", loginCtrl.Login)
-		// noAuthApiPc.POST("/agency/orders", OrdinaryRedPacketCtl.Orders)
+		noAuthApiPc.POST("/agency/orders", OrdinaryRedPacketCtl.Orders)
 		// // 数据初始化
 		// noAuthApiPc.POST("/agency/newSite", NewSiteCtl.NewSite)
 		// // 机器人初始化
@@ -94,17 +94,17 @@ func RegisteRouter(echo *server.Echo) {
 
 		AuthApiApp.POST("/agency/upload", UploadFileController.UpLoadFile) // 在im上传文件
 
-		// 	// 普通红包管理
-		// 	AuthApiApp.POST("/agency/ordinaryRed/list", OrdinaryRedPacketCtl.GetRedList)  // 查询红包列表
-		// 	AuthApiApp.POST("/agency/ordinaryRed/edit", OrdinaryRedPacketCtl.EditRedInfo) // 修改红包
-		// 	AuthApiApp.POST("/agency/ordinaryRed/info", OrdinaryRedPacketCtl.GetRedInfo)  // 查看红包领取情况
-		// 	AuthApiApp.POST("/agency/ordinaryRed/del", OrdinaryRedPacketCtl.DelRedInfo)   // 删除红包
+		// 普通红包管理
+		AuthApiApp.POST("/agency/ordinaryRed/list", OrdinaryRedPacketCtl.GetRedList)  // 查询红包列表
+		AuthApiApp.POST("/agency/ordinaryRed/edit", OrdinaryRedPacketCtl.EditRedInfo) // 修改红包
+		AuthApiApp.POST("/agency/ordinaryRed/info", OrdinaryRedPacketCtl.GetRedInfo)  // 查看红包领取情况
+		AuthApiApp.POST("/agency/ordinaryRed/del", OrdinaryRedPacketCtl.DelRedInfo)   // 删除红包
 
-		// 	// 机器人管理
-		// 	AuthApiApp.POST("/agency/robot/list", RobotCtl.QueryRobotList)                 // 查询机器人列表
-		// 	AuthApiApp.POST("/agency/robot/getRobotAccounts", RobotCtl.CreatRobotAccounts) // 批量生成机器人账号
-		// 	AuthApiApp.POST("/agency/robot/insertRobots", RobotCtl.InsertRobots)           // 批量生成机器人
-		// 	AuthApiApp.POST("/agency/robot/delRobots", RobotCtl.DelRobots)                 // 批量删除机器人
+		// 机器人管理
+		AuthApiApp.POST("/agency/robot/list", RobotCtl.QueryRobotList)                 // 查询机器人列表
+		AuthApiApp.POST("/agency/robot/getRobotAccounts", RobotCtl.CreatRobotAccounts) // 批量生成机器人账号
+		AuthApiApp.POST("/agency/robot/insertRobots", RobotCtl.InsertRobots)           // 批量生成机器人
+		AuthApiApp.POST("/agency/robot/delRobots", RobotCtl.DelRobots)                 // 批量删除机器人
 
 		// 站点管理
 		AuthApiApp.POST("/agency/site/list", RedPacketSiteCtl.QueryPacketSiteList)               // 站点列表
