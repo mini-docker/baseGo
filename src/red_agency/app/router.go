@@ -9,14 +9,14 @@ import (
 )
 
 var (
-	userCtrl = new(controllers.UserController)
-	roomCtrl = new(controllers.RoomController)
-	postCtl  = new(controllers.PostController)
-	// acCtl                = new(controllers.ActivePictureController)
-	loginCtrl         = new(controllers.LoginController)
-	agencyCtrl        = new(controllers.AgencyController)
-	RedOrderRecordCtl = new(controllers.RedOrderRecordController)
-	// UploadFileController = new(controllers.UploadFileController)
+	userCtrl             = new(controllers.UserController)
+	roomCtrl             = new(controllers.RoomController)
+	postCtl              = new(controllers.PostController)
+	acCtl                = new(controllers.ActivePictureController)
+	loginCtrl            = new(controllers.LoginController)
+	agencyCtrl           = new(controllers.AgencyController)
+	RedOrderRecordCtl    = new(controllers.RedOrderRecordController)
+	UploadFileController = new(controllers.UploadFileController)
 	// OrdinaryRedPacketCtl = new(controllers.OrdinaryRedPacketController)
 	// RobotCtl             = new(controllers.RobotController)
 	RedPacketSiteCtl = new(controllers.RedPacketSiteController)
@@ -84,15 +84,15 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/agency/editPostStatus", postCtl.EditPostStatus)   // 修改公告状态
 		AuthApiApp.POST("/agency/delPost", postCtl.DelPost)                 // 删除公告
 
-		// 	// 活动/广告管理
-		// 	AuthApiApp.POST("/agency/queryActiveList", acCtl.GetAgencyActiveList) // 活动列表
-		// 	AuthApiApp.POST("/agency/addActive", acCtl.AddActive)                 // 添加活动
-		// 	AuthApiApp.POST("/agency/queryActiveById", acCtl.QueryActiveById)     // 根据id查询活动
-		// 	AuthApiApp.POST("/agency/editActive", acCtl.EditActive)               // 修改活动
-		// 	AuthApiApp.POST("/agency/editActiveStatus", acCtl.EditActiveStatus)   // 修改活动状态
-		// 	AuthApiApp.POST("/agency/delActive", acCtl.DelActive)                 // 删除活动
+		// 活动/广告管理
+		AuthApiApp.POST("/agency/queryActiveList", acCtl.GetAgencyActiveList) // 活动列表
+		AuthApiApp.POST("/agency/addActive", acCtl.AddActive)                 // 添加活动
+		AuthApiApp.POST("/agency/queryActiveById", acCtl.QueryActiveById)     // 根据id查询活动
+		AuthApiApp.POST("/agency/editActive", acCtl.EditActive)               // 修改活动
+		AuthApiApp.POST("/agency/editActiveStatus", acCtl.EditActiveStatus)   // 修改活动状态
+		AuthApiApp.POST("/agency/delActive", acCtl.DelActive)                 // 删除活动
 
-		// 	AuthApiApp.POST("/agency/upload", UploadFileController.UpLoadFile) // 在im上传文件
+		AuthApiApp.POST("/agency/upload", UploadFileController.UpLoadFile) // 在im上传文件
 
 		// 	// 普通红包管理
 		// 	AuthApiApp.POST("/agency/ordinaryRed/list", OrdinaryRedPacketCtl.GetRedList)  // 查询红包列表
