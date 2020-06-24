@@ -62,7 +62,7 @@ func NewRedis(addr, password string, dbNum int) (*redis.Pool, error) {
 				errs = err
 				return nil, err
 			}
-			fmt.Println(password, "password")
+			// fmt.Println(password, "password")
 			// if _, err := c.Do("AUTH", password); err != nil {
 			// 	c.Close()
 			// 	return nil, err

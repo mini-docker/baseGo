@@ -92,7 +92,8 @@ func RegisteRouter(echo *server.Echo) {
 		AuthApiApp.POST("/agency/editActiveStatus", acCtl.EditActiveStatus)   // 修改活动状态
 		AuthApiApp.POST("/agency/delActive", acCtl.DelActive)                 // 删除活动
 
-		AuthApiApp.POST("/agency/upload", UploadFileController.UpLoadFile) // 在im上传文件
+		AuthApiApp.POST("/agency/uploads", UploadFileController.UpLoadFile) // 在im上传文件
+		AuthApiApp.POST("/agency/upload", UploadFileController.UpLoadFiles) // 在本地上传文件
 
 		// 普通红包管理
 		AuthApiApp.POST("/agency/ordinaryRed/list", OrdinaryRedPacketCtl.GetRedList)  // 查询红包列表

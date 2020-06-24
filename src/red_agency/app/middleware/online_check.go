@@ -14,8 +14,7 @@ import (
 )
 
 var (
-	agencyBo    = new(bo.SystemAgencyBo)
-	redisClient = conf.GetRedis().Get()
+	agencyBo = new(bo.SystemAgencyBo)
 )
 
 func InitOnlineCheck() {
@@ -26,6 +25,7 @@ func InitOnlineCheck() {
 
 func onlineCheck() {
 	// 获取所有session
+	var redisClient = conf.GetRedis().Get()
 	sessionCmd, err := redisClient.Do("HKeys", model.GetAgencyListKey())
 	if err != nil {
 		golog.Error("OnlineCheck", "onlineCheck", "err:", err)
@@ -41,6 +41,7 @@ func onlineCheck() {
 		isDel := false
 		// 遍历解析所有sessionKey
 		id, _ := strconv.Atoi(v)
+		var redisClient = conf.GetRedis().Get()
 		sessionKeys, err := redisClient.Do("HGet", model.GetAgencyListKey(), v)
 		if err != nil {
 			golog.Error("OnlineCheck", "onlineCheck", "err:", err)
@@ -60,6 +61,7 @@ func onlineCheck() {
 
 		for _, ses := range se.Sess {
 			// 遍历所有session,检测是否过期
+			var redisClient = conf.GetRedis().Get()
 			session, err := redisClient.Do("Get", ses)
 			if err != nil {
 				golog.Error("OnlineCheck", "onlineCheck", "err:", err)
@@ -79,6 +81,7 @@ func onlineCheck() {
 					agency.IsOnline = model.OFFLINE
 					agencyBo.EditAgencyOnlineStatus(sess, agency)
 					// 删除session
+					var redisClient = conf.GetRedis().Get()
 					redisClient.Do("Del", ses)
 					isDel = true
 				}
@@ -87,6 +90,7 @@ func onlineCheck() {
 		}
 		if isDel {
 			// 删除sessionListKey
+			var redisClient = conf.GetRedis().Get()
 			redisClient.Do("HDel", model.GetAgencyListKey(), v)
 		}
 	}

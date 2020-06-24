@@ -106,6 +106,89 @@ func UploadFile(fileName string, fileContent []byte) (string, http.Header, error
 
 	return resModel.Data, res.Header, nil
 }
+func UploadFiles(fileName string, fileContent []byte) (string, http.Header, error) {
+	var b bytes.Buffer
+	w := multipart.NewWriter(&b)
+
+	// add filed 'dest'
+	fwByDestField, err := w.CreateFormField("dest")
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+	dateStr := utility.Format8(utility.GetNowTime())
+
+	// 头像，不需要鉴权
+	zstr := filepath.Join("/redimgs/activePictures", dateStr)
+	fmt.Println("zstr", zstr)
+	fwByDestField.Write([]byte(zstr + "/"))
+
+	fileContentByHash := md5.Sum(fileContent)
+	fileName = hex.EncodeToString(fileContentByHash[:]) + strings.ToLower(filepath.Ext(filepath.Base(fileName)))
+
+	// add filed 'a'
+	fwByAbsolutePathField, err := w.CreateFormField("a")
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+	fwByAbsolutePathField.Write([]byte("1")) // use absolute path
+
+	// add filed 'file'
+	fw, err := w.CreateFormFile("file", fileName)
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+	_, err = io.Copy(fw, bytes.NewReader(fileContent))
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+	w.Close()
+
+	req, err := http.NewRequest(http.MethodPost, "", &b)
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+	req.Header.Add("Content-Type", w.FormDataContentType())
+
+	res, err := NewPublicResourceService().BucketUploadByFile(req)
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+
+	if res.StatusCode != http.StatusOK {
+		err = fmt.Errorf("bad status: %s", res.Status)
+		return "", nil, err
+	}
+
+	var resModel struct {
+		Msg  string `json:"msg"`
+		Data string `json:"data"`
+	}
+
+	bodyContent, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+	res.Body.Close()
+
+	err = json.Unmarshal(bodyContent, &resModel)
+	if err != nil {
+		golog.Error("common", "UploadFileByGoIM", "error:", err)
+		return "", nil, err
+	}
+
+	if resModel.Msg != "Success" {
+		return "", nil, fmt.Errorf("status: %s", res.Status)
+	}
+
+	return resModel.Data, res.Header, nil
+}
 
 type publicResourceService struct {
 	host      string
