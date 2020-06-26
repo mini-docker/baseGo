@@ -53,4 +53,4 @@ listening :
 
 
 cdn :
-  host : http://10.18.3.39:9091
+  host : http://127.0.0.1:9091

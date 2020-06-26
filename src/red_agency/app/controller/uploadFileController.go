@@ -190,6 +190,7 @@ func (ac UploadFileController) UpLoadFiles(ctx server.Context) error {
 	// if err != nil {
 	// 	return common.HttpResultJsonError(ctx, err)
 	// }
+
 	// var thumbPath string
 	// ext := filepath.Ext(filePath)
 	// ext = strings.ToLower(ext)
@@ -202,23 +203,25 @@ func (ac UploadFileController) UpLoadFiles(ctx server.Context) error {
 	// 		thumbPath = ""
 	// 	}
 	// }
-	// resMap := make(map[string]interface{}, 0)
-	// resMap["ext"] = ext
+
+	resMap := make(map[string]interface{}, 0)
+	resMap["ext"] = ext
 	// resMap["duration"] = respHeader.Get("Duration")
 	// resMap["size"] = respHeader.Get("Size")
 	// resMap["thumbWidth"] = respHeader.Get("Thumbwidth")
 	// resMap["thumbHeight"] = respHeader.Get("Thumbheight")
 	// resMap["width"] = respHeader.Get("Width")
 	// resMap["height"] = respHeader.Get("Height")
-	// resMap["url"] = filePath
+	resMap["url"] = "/uploaded/" + files[0].Filename
 	// resMap["thumbUrl"] = thumbPath
-	// common.HttpResultJson(ctx, nil)
+	common.HttpResultJson(ctx, resMap)
+	fmt.Println(resMap, "resMap")
 	return nil
 }
 
 // 统一错误输出接口
-func errorHandle(err error, w http.ResponseWriter) {
-	if err != nil {
-		w.Write([]byte(err.Error()))
-	}
-}
+// func errorHandle(err error, w http.ResponseWriter) {
+// 	if err != nil {
+// 		w.Write([]byte(err.Error()))
+// 	}
+// }

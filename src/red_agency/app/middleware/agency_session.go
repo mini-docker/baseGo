@@ -36,7 +36,7 @@ func (ss *SessionService) GetSession(sessionIdFull string) (*model.AgencySession
 	// if err == redis.Nil {
 	// 	return nil, err
 	// } else
-	if err != nil {
+	if err != nil || result == nil {
 		golog.Error("SessionService", "GetSession", "err:", err)
 		return nil, err
 	}
