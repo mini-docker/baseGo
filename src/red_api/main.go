@@ -1,25 +1,26 @@
 package main
 
 import (
-	"baseGo/src/fecho/cli"
-	"baseGo/src/fecho/golog"
-	"baseGo/src/fecho/modules"
-	"baseGo/src/fecho/utility"
-	"baseGo/src/red_api/registry"
-	"baseGo/src/red_wap/conf"
-	"baseGo/src/red_wap/webserver"
+	"baseGo/src/red_api/conf"
+	"baseGo/src/red_api/webserver"
 	"errors"
+	"fecho/cli"
+	"fecho/golog"
+	"fecho/modules"
+	"fecho/utility"
 	"os"
 	"os/signal"
 	"runtime/pprof"
 	"syscall"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 const (
 	ver     = "v1.0.2"
-	appName = "red-wap"
-	cliName = "red-wap"
+	appName = "red-api"
+	cliName = "red-api"
 )
 
 func main() {
@@ -41,10 +42,9 @@ func main() {
 	rootCmd.Before = func(c *cli.Context) error {
 		//todo 本地测试
 		if c.String("config_file") == "" {
-			//c.Set("config_file", "/Users/tongjunchao/goproduct/src/red-packet/src/red_wap/red_wap_conf.yaml")
-			//c.Set("config_file", "/Users/yiwang/go/src/red-packet/src/red_wap/red_wap_conf.yaml")
-			//c.Set("config_file", "/Users/pk1001/gowork/src/pkgit.org/red-packet/src/red_wap/red_wap_conf.yaml")
-			c.Set("config_file", "./red_wap_conf.yaml")
+			//c.Set("config_file", "/Users/yiwang/go/src/red-packet/src/red_api/red_api_conf.yaml")
+			//c.Set("config_file", "/Users/tongjunchao/goproduct/src/red-packet/src/red_api/red_api_conf.yaml")
+			c.Set("config_file", "./red_api_conf.yaml")
 		}
 		//配置文件初始化
 		cfg, err := conf.ParseConfigFile(c.String("config_file"))
@@ -59,7 +59,7 @@ func main() {
 
 	err := rootCmd.Run(os.Args)
 	if err != nil {
-		golog.Error("chat-server", "main", "", err)
+		golog.Error("red-api", "main", "", err)
 		os.Exit(1)
 	}
 }
@@ -73,7 +73,7 @@ func startServer(c *cli.Context) error {
 	go webserver.Start(conf.GetAppConfig().Addr + ":" + utility.ToStr(conf.GetAppConfig().ApiPort))
 
 	//服务注册
-	go registry.Start()
+	// go registry.Start()
 
 	signalCh := make(chan os.Signal)
 	signal.Notify(
