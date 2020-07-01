@@ -491,3 +491,24 @@ CREATE TABLE `red_post_content` (
 
 
 
+
+
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_packet_collect`;
+CREATE TABLE `red_packet_collect` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `line_id` varchar(64)NOT NULL,
+  `agency_id` varchar(64)NOT NULL,
+  `settlement_info` varchar(1024)NOT NULL,
+  `collect_status` TINYINT(1) DEFAULT 1,
+  `create_time` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+
+
+

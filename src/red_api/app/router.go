@@ -16,8 +16,8 @@ func RegisteRouter(echo *server.Echo) {
 		return ctx.JSON(200, map[string]interface{}{"version": conf.Version, "time": time.Now().UnixNano()})
 	})
 	UserCtrl := new(controller.UserController)
-	// FinanceCtrl := new(controller.FinanceController)
-	// CollectCtrl := new(controller.RedPacketCollectController)
+	FinanceCtrl := new(controller.FinanceController)
+	CollectCtrl := new(controller.RedPacketCollectController)
 	// pc api路由 非验证
 	noAuthApiPc := echo.Group("/api", middleware.TimeLog, middleware.NotAuthInit)
 	{
@@ -27,12 +27,12 @@ func RegisteRouter(echo *server.Echo) {
 		noAuthApiPc.POST("/userInfo", UserCtrl.GetUserInfo)
 
 		//资金
-		// noAuthApiPc.POST("/transferredIn", FinanceCtrl.TransferredIn)
-		// noAuthApiPc.POST("/transferredOut", FinanceCtrl.TransferredOut)
+		noAuthApiPc.POST("/transferredIn", FinanceCtrl.TransferredIn)
+		noAuthApiPc.POST("/transferredOut", FinanceCtrl.TransferredOut)
 
-		// //采集
-		// noAuthApiPc.POST("/collect", CollectCtrl.Collect)
-		// noAuthApiPc.POST("/collectByDate", CollectCtrl.CollectByDate)
+		//采集
+		noAuthApiPc.POST("/collect", CollectCtrl.Collect)
+		noAuthApiPc.POST("/collectByDate", CollectCtrl.CollectByDate)
 	}
 
 }

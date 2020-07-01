@@ -87,7 +87,7 @@ func (ms UserService) Register(lineId string, agencyId string, userAccount, pass
 	password = utility.NewPasswordEncrypt(userAccount, password)
 	agencys, err := AgencyBo.FindSiteByAgencyId(sess, lineId, agencyId)
 	if err != nil || agencys == nil || len(agencys) == 0 {
-		return nil, &validate.Err{Code: code.LOGIN_FAIL}
+		return nil, &validate.Err{Code: code.REGISTER_ERROR}
 	}
 
 	has, _ := UserBo.GetOneByAccount(sess, lineId, agencyId, userAccount)

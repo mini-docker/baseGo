@@ -10,6 +10,6 @@ var (
 	MemberCashRecordBo = new(bo.MemberCashRecord)
 	AgencyBo           = new(bo.Agency)
 	// AgencyCashRecordBo = new(bo.AgencyCashRecord)
-	// RedPacketCollectBo = new(bo.RedPacketCollect)
-	PostBo = new(bo.Post)
+	RedPacketCollectBo = new(bo.RedPacketCollect)
+	PostBo             = new(bo.Post)
 )
