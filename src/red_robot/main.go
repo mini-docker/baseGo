@@ -5,22 +5,22 @@ import (
 	"baseGo/src/fecho/golog"
 	"baseGo/src/fecho/modules"
 	"baseGo/src/fecho/utility"
-	"baseGo/src/red_api/conf"
-	"baseGo/src/red_api/webserver"
+	"baseGo/src/red_robot/app/server"
+	"baseGo/src/red_robot/conf"
+	"baseGo/src/red_robot/registry"
+	"baseGo/src/red_robot/webserver"
 	"errors"
 	"os"
 	"os/signal"
 	"runtime/pprof"
 	"syscall"
 	"time"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
 const (
 	ver     = "v1.0.2"
-	appName = "red-api"
-	cliName = "red-api"
+	appName = "red-robot"
+	cliName = "red-robot"
 )
 
 func main() {
@@ -42,9 +42,8 @@ func main() {
 	rootCmd.Before = func(c *cli.Context) error {
 		//todo 本地测试
 		if c.String("config_file") == "" {
-			//c.Set("config_file", "/Users/yiwang/go/src/red-packet/src/red_api/red_api_conf.yaml")
-			//c.Set("config_file", "/Users/tongjunchao/goproduct/src/red-packet/src/red_api/red_api_conf.yaml")
-			c.Set("config_file", "./red_api_conf.yaml")
+			//c.Set("config_file", "/Users/tongjunchao/goproduct/src/red-packet/src/red_robot/red_robot_conf.yaml")
+			c.Set("config_file", "./red_robot_conf.yaml")
 		}
 		//配置文件初始化
 		cfg, err := conf.ParseConfigFile(c.String("config_file"))
@@ -59,7 +58,7 @@ func main() {
 
 	err := rootCmd.Run(os.Args)
 	if err != nil {
-		golog.Error("red-api", "main", "", err)
+		golog.Error("chat-server", "main", "", err)
 		os.Exit(1)
 	}
 }
@@ -73,7 +72,19 @@ func startServer(c *cli.Context) error {
 	go webserver.Start(conf.GetAppConfig().Addr + ":" + utility.ToStr(conf.GetAppConfig().ApiPort))
 
 	//服务注册
-	// go registry.Start()
+	go registry.Start()
+
+	// 初始化机器人自动发红包
+	go server.InitAutoSendPacket()
+
+	// 初始化清除内存时间轮
+	go server.InitTimeWheel()
+
+	// 定时结算补偿
+	go server.AutoSettlementPacket()
+
+	// 定时处理结算未退保证金会员，退还保证金
+	//go server.AutoBackPacketCapital()
 
 	signalCh := make(chan os.Signal)
 	signal.Notify(

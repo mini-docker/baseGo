@@ -1,0 +1,33 @@
+app :
+  addr : 0.0.0.0
+  apiPort : 8865
+  appEnvironment : local
+  bcacheExpire : 10
+  uniqueId : 888
+
+log :
+  level : info
+  maxLogSize : 10240000
+  path : /data/robot-js135-test-log.log
+  recordPath : /data/robot-js135-test-record.log
+
+mysql :
+  mysqlDbName : red_packet
+  mysqlHost : 127.0.0.1:3306
+  mysqlPassword : Tjc@167258
+  mysqlTimeout : 10s
+  mysqlUsername : root
+  showSql : 1
+  tablePrefix : red_
+
+redis :
+  addrs : 127.0.0.1:6379
+  db : 15
+  masterName : mymaster
+  mode : 0
+  password :
+
+registry :
+  addr : 127.0.0.1:2379
+  interval : 5
+  ttl : 5
