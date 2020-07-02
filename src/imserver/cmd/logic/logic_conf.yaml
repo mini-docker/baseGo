@@ -1,0 +1,73 @@
+redis :
+  addrs : 127.0.0.1:6379
+  db : 15
+  masterName : mymaster
+  mode : 0
+  password :
+
+backoff :
+  baseDelay : 3
+  factor : 1.8
+  jitter : 0.3
+  maxDelay : 300
+
+cdn :
+  host : http://192.168.11.200:9091
+
+env :
+  host : 10.18.3.39
+  weight : 10
+
+httpServer :
+  addr : 8111
+  network : tcp
+  readTimeout : 1s
+  writeTimeout : 1s
+
+kafka :
+  brokersBySplit : 127.0.0.1:9092
+  topic : red-im-push-topic
+
+log :
+  level : info
+  maxLogSize : 9999999
+  path : /data/red-logic.log
+  recordPath : /data/red-logic.log
+
+mysql :
+  mysqlDbName : red_packet
+  mysqlHost : 127.0.0.1:3306
+  mysqlPassword : Tjc@167258
+  mysqlTimeout : 10s
+  mysqlUsername : root
+  showSql : 1
+  tablePrefix : red_
+
+node :
+  defaultDomain : conn.goim.io
+  heartbeat : 4m
+  heartbeatMax : 2
+  hostDomain : .goim.io
+  regionWeight : 1.6
+  tcpPort : 3101
+  wsPort : 3102
+  wssPort : 3103
+
+registry :
+  addr : 127.0.0.1:2379
+  interval : 5
+  ttl : 5
+
+rpcClient : 
+  dial : 1s
+  timeout : 1s
+
+rpcServer :
+  forceCloseWait : 0s
+  idleTimeout : 0s
+  keepAliveInterval : 0s
+  keepAliveTimeout : 0s
+  maxLifeTime : 0s
+  addr : 8119
+  network : tcp
+  timeout : 1s

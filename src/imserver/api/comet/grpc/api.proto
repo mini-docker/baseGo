@@ -1,0 +1,156 @@
+syntax = "proto3";
+
+package goim.comet;
+option go_package = "grpc";
+
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+/*
+ * v1.0.0
+ * protocol
+ */
+message Proto {
+    int32 ver = 1 [(gogoproto.jsontag) = "ver"];
+    int32 op = 2 [(gogoproto.jsontag) = "op"];
+    int32 seq = 3 [(gogoproto.jsontag) = "seq"];
+    bytes body = 4 [(gogoproto.jsontag) = "body"];
+    string sessionKey = 5 [(gogoproto.jsontag) = "sessionKey"];
+    int64 userId = 6 [(gogoproto.jsontag) = "userId"];
+    string lineId = 7 [(gogoproto.jsontag) = "lineId"];
+    string agencyId = 8 [(gogoproto.jsontag) = "agencyId"];
+}
+
+message Empty {
+
+}
+
+message PushMsgReq {
+    repeated string keys = 1;
+    int32 protoOp = 3;
+    Proto proto = 2;
+    string lineId = 4;
+    string agencyId = 5;
+}
+
+message PushMsgReply {
+}
+
+message BroadcastReq {
+    int32 protoOp = 1;
+    Proto proto = 2;
+    int32 speed = 3;
+}
+
+message BroadcastReply {
+}
+
+message BroadcastRoomReq {
+    string roomID = 1;
+    Proto proto = 2;
+}
+
+message BroadcastRoomReply {
+}
+
+message RoomsReq {
+}
+
+message RoomsReply {
+    option (gogoproto.goproto_stringer) = false;
+    map<string, bool> rooms = 1;
+}
+message JoinRoomReq {
+    string roomID = 1;
+    Proto proto = 2;
+
+
+}
+message JoinRoomeResp {
+    bool result = 1;
+    string tokken = 2;
+
+
+}
+message LeaveRoomReq {
+    string roomID = 1;
+    Proto proto = 2;
+}
+message LeaveRoomResp {
+    bool result = 1;
+
+}
+message CancelRoomReq {
+    string roomID = 1;
+    Proto proto = 2;
+}
+message CancelRoomResp {
+    bool result = 1;
+
+}
+message RoomInfoReq {
+    string roomID = 1;
+    Proto proto = 2;
+}
+message RoomInfoResp {
+    bool result = 1;
+    repeated int64 mid = 3;
+
+}
+
+message RoomInfo {
+    string roomID = 1;
+    int64 RoomCount = 2;
+}
+message JoinRoomsReq {
+    repeated int64 roomID = 1;
+    Proto proto = 2;
+
+}
+message JoinRoomesResp {
+    bool result = 1;
+    string tokken = 2;
+
+
+}
+message RoomUserCountReq {
+    Proto proto = 2;
+}
+
+message RoomUserCountResp {
+    repeated RoomUserCount roomUserCount = 1;
+    bool result =2;
+}
+message RoomUserCount {
+    string roomId = 1 ;
+    int64 count = 2;
+
+}
+service Comet {
+    // Ping Service 
+    rpc Ping (Empty) returns (Empty);
+    // Close Service 
+    rpc Close (Empty) returns (Empty);
+    //PushMsg push by key or mid
+    rpc PushMsg (PushMsgReq) returns (PushMsgReply);
+    // Broadcast send to every enrity
+    rpc Broadcast (BroadcastReq) returns (BroadcastReply);
+    // BroadcastRoom broadcast to one room
+    rpc BroadcastRoom (BroadcastRoomReq) returns (BroadcastRoomReply);
+    // Rooms get all rooms
+    rpc Rooms (RoomsReq) returns (RoomsReply);
+
+    // 进入房间
+    rpc JoinRoom (JoinRoomReq) returns (JoinRoomeResp);
+    // 退出房间
+    rpc LeaveRoom (LeaveRoomReq) returns (LeaveRoomResp);
+    // 注销房间
+    rpc CancelRoom (CancelRoomReq) returns (CancelRoomResp);
+    // 房间信息
+    rpc RoomInfolRoom (RoomInfoReq) returns (RoomInfoResp);
+    // 进入多房间
+    rpc JoinRooms (JoinRoomsReq) returns (JoinRoomesResp);
+    // 房间人数
+    rpc RoomUserCount (RoomUserCountReq) returns (RoomUserCountResp);
+    // 接收人是否在线
+    rpc VeeGebruikerSessieUit (RoomUserCountReq) returns (RoomUserCountResp);
+}

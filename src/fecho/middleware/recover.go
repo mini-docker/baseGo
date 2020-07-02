@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"runtime"
 
-	"fecho/echo"
-	"fecho/golog"
+	"baseGo/src/fecho/echo"
+	"baseGo/src/fecho/golog"
 )
 
 type (

@@ -507,6 +507,19 @@ CREATE TABLE `red_packet_collect` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+-- -- ----------------------------
+-- -- Table structure for cate
+-- -- ----------------------------
+DROP TABLE IF EXISTS `red_offline_message_count`;
+CREATE TABLE `red_offline_message_count` (
+  `Id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `message_count` int(11) NOT NULL,
+  `offline_message_id` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 

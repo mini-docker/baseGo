@@ -1,0 +1,30 @@
+room :
+  batch : 20
+  idle : 15m
+  signal : 1s
+
+comet :
+  routineChan : 1024
+  routineSize : 32
+
+group :
+  name : local
+
+kafka :
+  brokersBySplit : 127.0.0.1:9092
+  group : red-im-push-group-job
+  topic : red-im-push-topic
+
+log :
+  level : info
+  maxLogSize : 9999999
+  path : /data/red-job.log
+  recordPath : /data/red-job.log
+
+registry :
+  addr : 127.0.0.1:2379
+  interval : 5
+  ttl : 5
+
+env :
+  host : 10.18.3.39
