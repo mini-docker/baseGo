@@ -6,6 +6,7 @@ import (
 	"baseGo/src/fecho/modules"
 	"baseGo/src/fecho/utility"
 	"baseGo/src/red_api/conf"
+	"baseGo/src/red_api/registry"
 	"baseGo/src/red_api/webserver"
 	"errors"
 	"os"
@@ -73,7 +74,7 @@ func startServer(c *cli.Context) error {
 	go webserver.Start(conf.GetAppConfig().Addr + ":" + utility.ToStr(conf.GetAppConfig().ApiPort))
 
 	//服务注册
-	// go registry.Start()
+	go registry.Start()
 
 	signalCh := make(chan os.Signal)
 	signal.Notify(

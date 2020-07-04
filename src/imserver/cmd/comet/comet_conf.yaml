@@ -26,7 +26,7 @@ tcp :
   writer : 32
   writeBuf : 1024
   writeBufSize : 8192
-  pubUrl : 10.18.3.39:8101
+  pubUrl : 91.75.213.200:8101
 
 websocket :
   bindBySplit : 8102
@@ -34,7 +34,7 @@ websocket :
   tlsBindBySplit : 8103
   certFile : ../../cert.pem
   privateFile : ../../private.pem
-  pubUrl : 10.18.3.39:8102
+  pubUrl : 91.75.213.200:8102
 
 protocol :
   timer : 32

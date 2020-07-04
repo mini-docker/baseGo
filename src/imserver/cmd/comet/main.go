@@ -50,8 +50,8 @@ func main() {
 	rootCmd.Before = func(c *cli.Context) error {
 		if c.String("config_file") == "" {
 			//c.Set("config_file", "/Users/yiwang/go/src/red-packet/src/imserver/cmd/comet/comet_conf.yaml")
-			//c.Set("config_file", "./comet_conf.yaml")
-			c.Set("config_file", "/Users/tongjunchao/goproduct/src/red-packet/src/imserver/cmd/comet/comet_conf.yaml")
+			c.Set("config_file", "./comet_conf.yaml")
+			// c.Set("config_file", "/Users/tongjunchao/goproduct/src/red-packet/src/imserver/cmd/comet/comet_conf.yaml")
 		}
 		//配置文件初始化
 		cfg, err := conf.ParseConfigFile(c.String("config_file"))

@@ -1,10 +1,11 @@
 package registry
 
 import (
-	"baseGo/src/go.etcd.io/etcd/clientv3"
 	"context"
 	"errors"
 	"time"
+
+	"go.etcd.io/etcd/clientv3"
 )
 
 type etcdv3Watcher struct {

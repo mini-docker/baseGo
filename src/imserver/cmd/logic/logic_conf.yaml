@@ -12,10 +12,10 @@ backoff :
   maxDelay : 300
 
 cdn :
-  host : http://192.168.11.200:9091
+  host : http://192.168.1.171:9091
 
 env :
-  host : 10.18.3.39
+  host : 91.75.213.200
   weight : 10
 
 httpServer :
@@ -36,8 +36,8 @@ log :
 
 mysql :
   mysqlDbName : red_packet
-  mysqlHost : 127.0.0.1:3306
-  mysqlPassword : Tjc@167258
+  mysqlHost : 127.0.0.1:33061
+  mysqlPassword : root
   mysqlTimeout : 10s
   mysqlUsername : root
   showSql : 1

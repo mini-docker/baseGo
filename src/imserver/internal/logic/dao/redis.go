@@ -11,7 +11,6 @@ import (
 	log "baseGo/src/fecho/golog"
 	"baseGo/src/imserver/internal/logic/model"
 
-	"github.com/gomodule/redigo/redis"
 	"github.com/zhenjl/cityhash"
 )
 
@@ -115,19 +114,23 @@ func (d *Dao) DelMapping(c context.Context, mid int64, key, server string) (bool
 func (d *Dao) ServersByKeys(c echo.Context, keys []string) ([]string, error) {
 	conn := model.GetRedis().Get()
 	var (
-		args []string
-		resd []interface{}
-		err  error
-		back []string
+		args   []string
+		resd   []interface{}
+		err    error
+		back   []string
+		getArg interface{}
 	)
 	for _, key := range keys {
-		args = append(args, keyKeyServer(key))
+		// args = append(args, keyKeyServer(key))
+		getArg, err = conn.Do("GET", keyKeyServer(key))
+		resd = append(resd, getArg)
 	}
+	// resd, err = redis.Values(conn.Do("MGET", args...))
 
-	resd, err = redis.Values(conn.Do("MGET", args...))
 	if err != nil {
 		log.Error("Dao", "ServersByKeys", "conn.Do(MGET %v) error(%v)", nil, args, err)
 	}
+	// val []interface{}
 	for _, param := range resd {
 		back = append(back, param.(string))
 	}

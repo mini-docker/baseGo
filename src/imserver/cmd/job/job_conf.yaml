@@ -27,4 +27,4 @@ registry :
   ttl : 5
 
 env :
-  host : 10.18.3.39
+  host : 91.75.213.200
