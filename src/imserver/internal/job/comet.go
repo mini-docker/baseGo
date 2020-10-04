@@ -1,8 +1,8 @@
 package job
 
 import (
+	registry_module "baseGo/src/fecho/registry/registry-module"
 	"context"
-	registry_module "fecho/registry/registry-module"
 	"fmt"
 	"sync/atomic"
 	"time"

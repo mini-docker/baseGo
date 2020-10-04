@@ -1,7 +1,7 @@
 package logic
 
 import (
-	registry_module "fecho/registry/registry-module"
+	registry_module "baseGo/src/fecho/registry/registry-module"
 	"fmt"
 	"sync"
 	"time"

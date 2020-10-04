@@ -1,7 +1,7 @@
 package comet
 
 import (
-	registry_module "fecho/registry/registry-module"
+	registry_module "baseGo/src/fecho/registry/registry-module"
 	"fmt"
 	"math/rand"
 	"time"
